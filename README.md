@@ -4,8 +4,8 @@ presentations with a [CC-BY](http://creativecommons.org/licenses/by/4.0/) licens
 ![](https://user-images.githubusercontent.com/707462/174943502-3e50162b-09a0-4e34-b7c2-c203d8729fce.gif)
 
 # [2022] Learning with differentiable and amortized optimization
-[Powerpoint](https://github.com/bamos/presentations/raw/main/2022.differentiable-amortized-optimization.pptx) | [PDF](https://github.com/bamos/presentations/raw/main/2022.differentiable-amortized-optimization.pdf)
-https://github.com/bamos/presentations/raw/main/2022.differentiable-amortizated-optimization.pdf
+[Powerpoint](https://github.com/bamos/presentations/raw/main/2022.differentiable-amortized-optimization.pptx) |
+[PDF](https://github.com/bamos/presentations/raw/main/2022.differentiable-amortized-optimization.pdf)
 
 Optimization has been a transformative modeling and decision-making paradigm over the past century that computationally encodes non-trivial reasoning operations.  Developments in optimization foundations alongside domain experts have resulted in breakthroughs for 1) controlling robotic, autonomous, mechanical, and multi-agent systems, 2) making operational decisions based on future predictions, 3) efficiently transporting or matching resources, information, and measures, 4) allocating budgets and portfolios, 5) designing materials, molecules, and other structures, 6) solving inverse problems to infer underlying hidden costs, incentives, geometries, terrains, and other structures, and 7) learning and meta-learning the parameters of predictive and statistical models. These settings often analytically specify the relevant models of the world along with an explicit objective to optimize for. Once these are specified, computational optimization solvers are able to search over the space of possible solutions or configurations and return the best one.
 
