@@ -15,6 +15,10 @@ The magic of optimization stops when 1) the relevant models of the world are too
 
 2. *Amortized optimization* rapidly predicts approximate solutions to optimization problems and is useful when repeatedly solving optimization problems. Traditional optimization methods typically solve every new problem instance from scratch, ignoring shared structures and information when solving a new instance. In contrast, a solver augmented with amortized optimization learns the shared structure present in the solution mappings and better-searches the domain. I will cover the foundations of amortized optimization and highlight new applications in control and optimal transport.
 
+# [2022] Amortized optimization for computing optimal transport maps
+[Powerpoint](https://github.com/bamos/presentations/raw/main/2022.amortized-optimal-transport.pptx) |
+[PDF](https://github.com/bamos/presentations/raw/main/2022.amortized-optimal-transport.pdf)
+
 # [2022] Differentiable optimization
 [Powerpoint](https://github.com/bamos/presentations/raw/main/2022.differentiable-optimization.pptx) | [PDF](https://github.com/bamos/presentations/raw/main/2022.differentiable-optimization.pdf)
 
