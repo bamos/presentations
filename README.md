@@ -3,6 +3,10 @@ presentations with a [CC-BY](http://creativecommons.org/licenses/by/4.0/) licens
 
 ![](https://user-images.githubusercontent.com/707462/174943502-3e50162b-09a0-4e34-b7c2-c203d8729fce.gif)
 
+# [2023] Continuous optimal transport
+[Powerpoint](https://github.com/bamos/presentations/raw/main/2023.continuous-optimal-transport.pptx) |
+[PDF](https://github.com/bamos/presentations/raw/main/2023.continuous-optimal-transport.pdf)
+
 # [2022] Learning with differentiable and amortized optimization
 [Powerpoint](https://github.com/bamos/presentations/raw/main/2022.differentiable-amortized-optimization.pptx) |
 [PDF](https://github.com/bamos/presentations/raw/main/2022.differentiable-amortized-optimization.pdf)
