@@ -3,6 +3,12 @@ presentations with a [CC-BY](http://creativecommons.org/licenses/by/4.0/) licens
 
 ![](https://user-images.githubusercontent.com/707462/174943502-3e50162b-09a0-4e34-b7c2-c203d8729fce.gif)
 
+# [2023] On optimal control and machine learning
+[Powerpoint](https://github.com/bamos/presentations/raw/main/2023.control-learning.pptx) |
+[PDF](https://github.com/bamos/presentations/raw/main/2023.control-learning.pdf)
+
+This talk tours the optimal control and machine learning methodologies behind recent breakthroughs in the field. These are crucial components for building agents capable of computationally modeling and interacting with our world via planning and reasoning, e.g. for robotics, aircrafts, autonomous vehicles, games, economics, finance, and language, as well as agricultural, biomedical,chemical, industrial, and mechanical systems. We will start with 1) a lightweight introduction to optimal control, and then cover 2) machine learning for optimal control --- this includes reinforcement learning and overviews how the powerful abstractive and predictive capabilities of machine learning can drastically improve every part of a control system; and 3) optimal control for machine learning --- surprisingly in this opposite direction, some machine learning problems are able to be formulated as control problems and solved with optimal control methods, e.g. parts of diffusion models, optimal transport,and optimizing the parameters of models such as large language models with reinforcement learning.
+
 # [2023] Learning with differentiable and amortized optimization
 [Powerpoint](https://github.com/bamos/presentations/raw/main/2023.differentiable-amortized-optimization.pptx) |
 [PDF](https://github.com/bamos/presentations/raw/main/2023.differentiable-amortized-optimization.pdf)
