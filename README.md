@@ -3,6 +3,18 @@ presentations with a [CC-BY](http://creativecommons.org/licenses/by/4.0/) licens
 
 ![](https://user-images.githubusercontent.com/707462/174943502-3e50162b-09a0-4e34-b7c2-c203d8729fce.gif)
 
+# [2023] Amortized optimization for optimal transport
+[Powerpoint](https://github.com/bamos/presentations/raw/main/2023.amortized-optimal-transport.pptx) |
+[PDF](https://github.com/bamos/presentations/raw/main/2023.amortized-optimal-transport.pdf)
+
+Optimal transport has thriving applications in machine learning, computer vision, natural language processing, the physical sciences, and economics. These applications have largely been enabled by computational breakthroughs that have lead to tractable solutions to challenging optimization problems, especially in discrete spaces through the use of convex optimization methods. Beyond these well-understood classes problems, many difficult optimization problems and sub-problems in optimal transport remain open. This talk focuses on the use of learning methods to predict, or amortize, the solutions to these optimization problems. This amortization process incurs an initial computational cost of training a model to approximately predict the solutions, but afterwards, the model can produce predictions faster than solving the optimization problems from scratch to the same level of error. Furthermore, even inaccurate predictions are tolerable because they are easily detectable, e.g., via the optimality conditions, and can be fine-tuned by warm-starting an existing method with the prediction. The talk covers how to amortize the computation at three levels: 1) the optimal transport map or potential, 2) the c-transform or convex conjugate, and 3) costs defined by a Lagrangian.
+
+# [2023] [TaskMet](https://arxiv.org/abs/2312.05250) Poster
+[Powerpoint](https://github.com/bamos/presentations/raw/main/2023.taskmet-neurips-poster.pptx) |
+[PDF](https://github.com/bamos/presentations/raw/main/2023.taskmet-neurips-poster.pdf)
+
+Deep learning models are often deployed in downstream tasks that the training procedure may not be aware of. For example, models solely trained to achieve accurate predictions may struggle to perform well on downstream tasks because seemingly small prediction errors may incur drastic task errors. The standard end-to-end learning approach is to make the task loss differentiable or to introduce a differentiable surrogate that the model can be trained on. In these settings, the task loss needs to be carefully balanced with the prediction loss because they may have conflicting objectives. We propose take the task loss signal one level deeper than the parameters of the model and use it to learn the parameters of the loss function the model is trained on, which can be done by learning a metric in the prediction space. This approach does not alter the optimal prediction model itself, but rather changes the model learning to emphasize the information important for the downstream task. This enables us to achieve the best of both worlds: a prediction model trained in the original prediction space while also being valuable for the desired downstream task. We validate our approach through experiments conducted in two main settings: 1) decision-focused model learning scenarios involving portfolio optimization and budget allocation, and 2) reinforcement learning in noisy environments with distracting states. 
+
 # [2023] On optimal control and machine learning
 [Powerpoint](https://github.com/bamos/presentations/raw/main/2023.control-learning.pptx) |
 [PDF](https://github.com/bamos/presentations/raw/main/2023.control-learning.pdf)
