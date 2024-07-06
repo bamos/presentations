@@ -3,6 +3,26 @@ presentations with a [CC-BY](http://creativecommons.org/licenses/by/4.0/) licens
 
 ![](https://user-images.githubusercontent.com/707462/174943502-3e50162b-09a0-4e34-b7c2-c203d8729fce.gif)
 
+# [2024] [Lagrangian OT](https://arxiv.org/abs/2406.00288) Poster
+[Powerpoint](https://github.com/bamos/presentations/raw/main/2024.lagrangian-ot-poster.pptx) |
+[PDF](https://github.com/bamos/presentations/raw/main/2024.lagrangian-ot-poster.pdf)
+
+We investigate the optimal transport problem between probability
+measures when the underlying cost function is understood to satisfy a
+least action principle, also known as a Lagrangian cost. These
+generalizations are useful when connecting observations from a
+physical system where the transport dynamics are influenced by the
+geometry of the system, such as obstacles (e.g., incorporating barrier
+functions in the Lagrangian), and allows practitioners to incorporate
+a priori knowledge of the underlying system such as non-Euclidean
+geometries (e.g., paths must be circular). Our contributions are of
+computational interest, where we demonstrate the ability to
+efficiently compute geodesics and amortize spline-based paths, which
+has not been done before, even in low dimensional problems. Unlike
+prior work, we also output the resulting Lagrangian optimal transport
+map without requiring an ODE solver. We demonstrate the effectiveness
+of our formulation on low-dimensional examples taken from prior work.
+
 # [2024] End-to-end learning geometries for graphs, dynamical systems, and regression
 [Powerpoint](https://github.com/bamos/presentations/raw/main/2024.e2e-geometries.pptx) |
 [PDF](https://github.com/bamos/presentations/raw/main/2024.e2e-geometries.pdf)
