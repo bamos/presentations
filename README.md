@@ -3,6 +3,25 @@ presentations with a [CC-BY](http://creativecommons.org/licenses/by/4.0/) licens
 
 ![](https://user-images.githubusercontent.com/707462/174943502-3e50162b-09a0-4e34-b7c2-c203d8729fce.gif)
 
+# [2024] Differentiable optimization and robotics
+[Powerpoint](https://github.com/bamos/presentations/raw/main/2024.differentiable-opt-and-robotics.pptx) |
+[PDF](https://github.com/bamos/presentations/raw/main/2024.differentiable-opt-and-robotics.pdf)
+
+Optimization is a crucial technology for robotics and provides
+functionality such as optimal control, motion planning,
+state estimation, alignment, manipulation, tactile sensing,
+pose tracking, and safety mechanisms.
+These solvers are often integrated with learned models that
+estimate and predict non-trivial parts of the world.
+*Differentiable optimization* enables the learned model to
+receive a learning signal from these downstream optimization problems.
+This signal encourages the model to improve on regions that
+are important for the optimization problem to work well,
+rather than making accurate predictions under a supervised loss.
+This talk will overview the foundations, applications,
+and recent advancements on these topics, with a focus
+on continuous optimal control (MPC) and non-linear least squares.
+
 # [2024] Amortized optimization and AI
 [Powerpoint](https://github.com/bamos/presentations/raw/main/2024.amortized-optimization-and-AI.pptx) |
 [PDF](https://github.com/bamos/presentations/raw/main/2024.amortized-optimization-and-AI.pdf)
