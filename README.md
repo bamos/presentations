@@ -37,8 +37,8 @@ adversarial examples which an LLM can be fine-tuned on to make it more
 robust against jailbreaking attacks while maintaining performance.
 
 # [2024] Differentiable optimization and robotics
-[Powerpoint](https://github.com/bamos/presentations/raw/main/2024.differentiable-opt-and-robotics.pptx) |
-[PDF](https://github.com/bamos/presentations/raw/main/2024.differentiable-opt-and-robotics.pdf)
+[Powerpoint](https://github.com/bamos/presentations/raw/main/2024.differentiable-optimization-and-robotics.pptx) |
+[PDF](https://github.com/bamos/presentations/raw/main/2024.differentiable-optimization-and-robotics.pdf)
 
 Optimization is a crucial technology for robotics and provides
 functionality such as optimal control, motion planning,
