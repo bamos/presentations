@@ -1,5 +1,4 @@
-~*
-
-fig/*.pdf
-*.aux
-*.log
+_site
+.sass-cache
+.jekyll-metadata
+Gemfile.lock
