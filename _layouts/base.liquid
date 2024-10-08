@@ -91,10 +91,17 @@
 
    ga('create', 'UA-102191838-1', 'auto');
    ga('send', 'pageview');
-   // $("#toc").toc({
-   //     'headings': 'h2,h3'
-   // });
-   // anchors.add('h2,h3');
+
+    window.onload = function () {
+        // Hide objects (PDF embeds) that did not properly load
+        var objects = document.getElementsByTagName('object');
+        for (var i = 0; i < objects.length; i++) {
+            var obj = objects[i];
+            if (obj && obj.offsetHeight === 0) {
+                obj.style.display = 'none';
+            }
+        }
+    };
   </script>
 
 </body>
