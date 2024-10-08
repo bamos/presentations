@@ -1,7 +1,7 @@
 ---
 layout: post
 title: End-to-end learning geometries for graphs, dynamical systems, and regression
-date: 2024-01-01
+date: 2024-02-01
 powerpoint: 2024.e2e-geometries.pptx
 pdf: 2024.e2e-geometries.pdf
 abstract: >-

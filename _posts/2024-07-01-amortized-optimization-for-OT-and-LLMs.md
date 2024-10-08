@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Amortized optimization for OT and LLMs
-date: 2024-01-01
+date: 2024-07-01
 powerpoint: 2024.amortized-optimization-for-OT-and-LLMs.pdf
 pdf: 2024.amortized-optimization-for-OT-and-LLMs.pdf
 abstract: >-

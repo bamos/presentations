@@ -3,13 +3,14 @@ layout: singlePage
 title: "Presentations"
 ---
 
-These are the slides behind [my](http://bamos.github.io) major
+These are the slides behind my major
 presentations and posters.
 They are all released with a
 [CC-BY](http://creativecommons.org/licenses/by/4.0/)
 license.
 [Here](https://github.com/bamos/presentations)
 is the source code that generates this page.
+You can subscribe to these posts as an RSS feed [here](https://bamos.github.io/presentations/feed.xml).
 <hr>
 
 {% for post in site.posts %}

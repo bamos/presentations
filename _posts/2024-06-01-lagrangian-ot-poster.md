@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Lagrangian OT Poster
-date: 2024-01-01
+date: 2024-06-01
 powerpoint: 2024.lagrangian-ot-poster.pptx
 pdf: 2024.lagrangian-ot-poster.pdf
 paper: https://arxiv.org/abs/2406.00288

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Differentiable optimization and robotics
-date: 2024-01-01
+date: 2024-07-01
 powerpoint: 2024.differentiable-optimization-and-robotics.pptx
 pdf: 2024.differentiable-optimization-and-robotics.pdf
 abstract: >-
