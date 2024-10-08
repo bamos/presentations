@@ -8,9 +8,11 @@ presentations and posters.
 They are all released with a
 [CC-BY](http://creativecommons.org/licenses/by/4.0/)
 license.
-[Here](https://github.com/bamos/presentations)
-is the source code that generates this page.
 You can subscribe to these posts as an RSS feed [here](https://bamos.github.io/presentations/feed.xml).
+The source code for this website is available in
+[this repo](https://github.com/bamos/presentations).
+It uses Jekyll to take the list of presentations and statically generate
+this page along with individual linkable pages for them.
 <hr>
 
 {% for post in site.posts %}
