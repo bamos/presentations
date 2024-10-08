@@ -20,6 +20,9 @@
   <script type="module" src="https://md-block.verou.me/md-block.js"></script>
   <style>
     h1 a, a:hover { color: #333333; }
+    @supports (-webkit-touch-callout: none) {
+        object { display: none; }
+    }
   </style>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,17 +94,6 @@
 
    ga('create', 'UA-102191838-1', 'auto');
    ga('send', 'pageview');
-
-    window.onload = function () {
-        // Hide objects (PDF embeds) that did not properly load
-        var objects = document.getElementsByTagName('object');
-        for (var i = 0; i < objects.length; i++) {
-            var obj = objects[i];
-            if (obj && obj.offsetHeight === 0) {
-                obj.style.display = 'none';
-            }
-        }
-    };
   </script>
 
 </body>
