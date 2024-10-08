@@ -1,0 +1,24 @@
+---
+layout: singlePage
+---
+
+<h1>{{ page.title }}</h1>
+<em>{{ page.date | date: "%Y" }}</em>
+{% if page.powerpoint %}
+| <a href="{{ site.baseurl }}/{{ page.powerpoint }}">Powerpoint</a>
+{% endif %}
+{% if page.pdf %}
+| <a href="{{ site.baseurl }}/{{ page.pdf }}">PDF</a>
+{% endif %}
+{% if page.paper %}
+| <a href="/{{ page.paper }}">Paper</a>
+{% endif %}
+<br>
+
+<hr>
+
+<md-block>
+{{ page.abstract }}
+</md-block>
+
+<embed src="{{ site.baseurl }}/{{ page.pdf }}" width="100%" height="1000px">
