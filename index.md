@@ -15,27 +15,42 @@ It uses Jekyll to take the list of presentations and statically generate
 this page along with individual linkable pages for them.
 <hr>
 
+<ol>
 {% for post in site.posts %}
 {% unless post.draft %}
-<h1><a href="{{ site.baseurl }}/{{ post.url }}">{{ post.title }}</a></h1>
+<li>
+<span class='cvdate'>{{ post.date | date: "%Y" }}</span>
+<a href="{{ site.baseurl }}/{{ post.url }}" target='_blank'>{{ post.title }}</a>
+</li>
+{% endunless %}
+{% endfor %}
+</ol>
+
+<hr>
+
+{% for post in site.posts %}
+{% unless post.draft %}
+<h1><a href="{{ site.baseurl }}/{{ post.url }}" target='_blank'>{{ post.title }}</a></h1>
 <em>{{ post.date | date: "%Y" }}</em>
 {%- if post.powerpoint -%}
-&nbsp;| <a href="{{ site.baseurl }}/{{ post.powerpoint }}">Powerpoint</a>
+&nbsp;| <a href="{{ site.baseurl }}/{{ post.powerpoint }}" target='_blank'>Powerpoint</a>
 {%- endif -%}
 {%- if post.keynote -%}
-&nbsp;| <a href="{{ site.baseurl }}/{{ post.keynote }}">Keynote</a>
+&nbsp;| <a href="{{ site.baseurl }}/{{ post.keynote }}" target='_blank'>Keynote</a>
 {%- endif -%}
 {%- if post.pdf -%}
-&nbsp;| <a href="{{ site.baseurl }}/{{ post.pdf }}">PDF</a>
+&nbsp;| <a href="{{ site.baseurl }}/{{ post.pdf }}" target='_blank'>PDF</a>
 {%- endif -%}
 {%- if post.paper -%}
-&nbsp;| <a href="{{ post.paper }}">Paper</a>
+&nbsp;| <a href="{{ post.paper }}" target='_blank'>Paper</a>
 {%- endif -%}
 <br>
 <md-block>
 {{ post.abstract }}
 </md-block>
-<embed src="{{ site.baseurl }}/{{ post.pdf }}" width="100%" height="1000px">
+<br>
+<object data="{{ site.baseurl }}/{{ post.pdf }}" type='application/pdf' width="100%" height="1000px">
+</object>
 <hr>
 {% endunless %}
 {% endfor %}
