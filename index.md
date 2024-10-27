@@ -28,6 +28,7 @@ this page along with individual linkable pages for them.
 
 <hr>
 
+<!---
 {% for post in site.posts %}
 {% unless post.draft %}
 <h1><a href="{{ site.baseurl }}/{{ post.url }}" target='_blank'>{{ post.title }}</a></h1>
@@ -54,3 +55,4 @@ this page along with individual linkable pages for them.
 <hr>
 {% endunless %}
 {% endfor %}
+-->
