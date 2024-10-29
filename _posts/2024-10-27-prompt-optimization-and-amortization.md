@@ -3,7 +3,7 @@ layout: post
 title: On LLM prompt optimization and amortization
 date: 2024-10-27
 powerpoint: 2024.prompt-optimization-and-amortization.pptx
-pdf: 2024.prompt-optimization-and-amortization.pptx
+pdf: 2024.prompt-optimization-and-amortization.pdf
 abstract: >-
   Prompting LLMs is a challenging art where different ways of expressing
   the same idea can lead to drastically different responses. Not
