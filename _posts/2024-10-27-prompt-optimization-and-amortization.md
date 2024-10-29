@@ -14,8 +14,8 @@ abstract: >-
   few-shot classification tasks. In this session, we'll first cover how
   prompt optimization can be expressed as a combinatorial optimization
   problem (over the token sequence space) and overview the standard
-  methods here. (A warning for this audience (Dagstuhl seminar on
-  ML and combinatorial optimization): standard combinatorial
+  methods here. (A warning for this audience [the Dagstuhl seminar on
+  ML and combinatorial optimization]: standard combinatorial
   solvers or approaches are often not used, and instead approaches are
   specialized to LLMs.) Beyond this, prompt optimization problems are
   often not solved a single time in isolation, but are repeatedly solved
