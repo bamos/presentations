@@ -7,7 +7,7 @@ github_username:  bamos
 
 domain: bamos.github.io
 url: https://bamos.github.io
-baseurl: /presentations/
+baseurl: /presentations
 
 markdown: kramdown
 theme: minima

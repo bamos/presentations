@@ -20,7 +20,7 @@ this page along with individual linkable pages for them.
 {% unless post.draft %}
 <li>
 <span class='cvdate'>{{ post.date | date: "%Y" }}</span>
-<a href="{{ site.baseurl }}/{{ post.url }}" target='_blank'>{{ post.title }}</a>
+<a href="{{ site.baseurl }}{{ post.url }}" target='_blank'>{{ post.title }}</a>
 </li>
 {% endunless %}
 {% endfor %}
