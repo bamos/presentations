@@ -3,7 +3,7 @@ layout: post
 title: On amortized optimization for RL, Bayesian optimization, and biology
 date: 2025-05-01
 powerpoint: 2025.amortization-rl-bio.pptx
-pdf: 2025.amortization-rl-bio.ppdf
+pdf: 2025.amortization-rl-bio.pdf
 abstract: >-
   [Amortized optimization](https://arxiv.org/abs/2202.00665) is the use of learning to augment and
   accelerate optimization solvers by leveraging the knowledge and
