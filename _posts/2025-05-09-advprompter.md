@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 
+title: "AdvPrompter: Fast Adaptive Adversarial Prompting for LLMs"
 date: 2025-05-09
 powerpoint: 2025.advprompter.pptx
 pdf: 2025.advprompter.pdf
