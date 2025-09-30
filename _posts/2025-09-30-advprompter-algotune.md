@@ -17,6 +17,7 @@ abstract: >-
   integrate the improvement back into the base model.
   This talk explores this in two domains:
 
+
   1) Prompt optimization and adversarial attacks ---
   in [AdvPrompter](https://arxiv.org/abs/2404.16873) (ICML 2025) we
   learn a /meta-prompting/ model that rapidly predicts the optimal
@@ -31,6 +32,7 @@ abstract: >-
   along with a baseline code agent to solve it.
   The coding agent iteratively optimizes the code (and prompts)
   for the task's runtime as the objective.
+
 
   We'll draw connections between these two seemingly separate settings
   and show how meta-learning and agentic test-time computations squeeze
