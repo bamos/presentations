@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "On meta prompt optimization and coding agents"
-date: 2025-09-30
+date: 2025-12-07
 powerpoint: 2025.advprompter-algotune.pptx
 pdf: 2025.advprompter-algotune.pdf
 abstract: >-
