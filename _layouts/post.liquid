@@ -4,6 +4,9 @@ layout: singlePage
 
 <h1>{{ page.title }}</h1>
 <em>{{ page.date | date: "%Y" }}</em>
+{% if page.keynote %}
+| <a href="{{ site.baseurl }}/{{ page.keynote }}">Keynote</a>
+{% endif %}
 {% if page.powerpoint %}
 | <a href="{{ site.baseurl }}/{{ page.powerpoint }}">Powerpoint</a>
 {% endif %}
