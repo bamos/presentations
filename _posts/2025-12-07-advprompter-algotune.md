@@ -18,16 +18,16 @@ abstract: >-
   This talk explores this in two domains:
 
 
-  1) Prompt optimization and adversarial attacks ---
-  in [AdvPrompter](https://arxiv.org/abs/2404.16873) (ICML 2025) we
-  learn a /meta-prompting/ model that rapidly predicts the optimal
+  1) Prompt optimization and adversarial attacks---in
+  [AdvPrompter](https://arxiv.org/abs/2404.16873) (ICML 2025) we
+  learn a *meta-prompting* model that rapidly predicts the optimal
   adversarial suffix for jailbreaking an LM, and in
   [AdvPrefix](https://arxiv.org/abs/2412.10321) (NeurIPS 2025),
   we show variants on the jailbreaking optimization
   problem objective can result in significantly improved performance, and
 
-  2) Numerical code synthesis with agents  ---
-  in [AlgoTune](https://arxiv.org/abs/2507.15887) (NeurIPS D&B 2025),
+  2) Numerical code synthesis with agents---in
+  [AlgoTune](https://arxiv.org/abs/2507.15887) (NeurIPS D&B 2025),
   we propose a benchmark suite of 154 numerical coding tasks
   along with a baseline code agent to solve it.
   The coding agent iteratively optimizes the code (and prompts)
