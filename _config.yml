@@ -12,7 +12,19 @@ baseurl: /presentations
 
 markdown: kramdown
 theme: minima
-plugins:
-  - jekyll-feed
+plugins: []
+safe: false
 
 future: true
+
+collections:
+  presentations:
+    output: true
+    permalink: /:path:output_ext
+
+defaults:
+  - scope:
+      path: ""
+      type: presentations
+    values:
+      layout: post

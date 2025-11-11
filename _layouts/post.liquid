@@ -2,6 +2,54 @@
 layout: singlePage
 ---
 
+<style>
+.presentation-divider {
+  margin: 1.5rem 0;
+  height: 2px;
+  border-radius: 999px;
+  background-color: rgba(90, 90, 90, 0.8);
+}
+
+.presentation-abstract {
+  padding: 0 1.25rem;
+  margin: 0 1.25rem;
+}
+
+.presentation-abstract md-block {
+  text-align: justify;
+  margin: 0;
+}
+
+.presentation-spacer {
+  margin-bottom: 1.25rem;
+}
+
+.presentation-pdf-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.presentation-pdf-object {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .presentation-abstract {
+    padding: 0;
+    margin: 0;
+  }
+  .presentation-divider {
+    margin: 1rem 0;
+  }
+  .presentation-pdf-wrapper {
+    display: none !important;
+  }
+}
+</style>
+
 <h1>{{ page.title }}</h1>
 {{ page.date | date: "%Y" }}
 {% if page.keynote %}
@@ -19,23 +67,22 @@ layout: singlePage
 {% assign abstract_text = page.abstract | default: "" | strip %}
 {% if abstract_text != "" %}
 <br>
-<div style="margin: 1.5rem 0; height: 2px; border-radius: 999px; background-color: rgba(90, 90, 90, 0.8);"></div>
-<div style="padding: 0 1.25rem; margin: 0 1.25rem;">
-  <md-block style="text-align: justify; margin: 0;">
+<div class="presentation-divider"></div>
+<div class="presentation-abstract">
+  <md-block>
   <b>Abstract.</b> {{ abstract_text }}
   </md-block>
 </div>
 {% else %}
 <br>
-<div style="margin-bottom: 1.25rem;"></div>
+<div class="presentation-spacer"></div>
 {% endif %}
 
-<div style="display: flex; flex-direction: column; height: 90vh;">
+<div class="presentation-pdf-wrapper">
 <div style="flex: 1 1 auto;">
   <object
+    class="presentation-pdf-object"
     data="{{ site.baseurl }}/{{ page.pdf }}"
     type="application/pdf"
-    width="100%"
-    height="100%"
   ></object>
 </div>

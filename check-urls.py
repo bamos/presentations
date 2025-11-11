@@ -18,7 +18,7 @@ except ModuleNotFoundError:  # pragma: no cover - PyYAML optional
     yaml = None
 
 ROOT = Path(__file__).resolve().parent
-POSTS_DIR = ROOT / "_posts"
+PRESENTATIONS_DIR = ROOT / "_presentations"
 FRONT_MATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*", re.DOTALL)
 URL_PATTERN = re.compile(r"https?://[^\s)\]>]+", re.IGNORECASE)
 URL_TIMEOUT = 10
@@ -159,15 +159,15 @@ def _parse_simple_yaml(raw: str):
 def main() -> int:
     errors = defaultdict(list)
     checked = 0
-    posts_checked = 0
+    items_checked = 0
 
-    for post in sorted(POSTS_DIR.glob("*")):
-        if not post.is_file():
+    for presentation in sorted(PRESENTATIONS_DIR.glob("*")):
+        if not presentation.is_file() or presentation.suffix.lower() != ".md":
             continue
-        posts_checked += 1
-        rel_post = post.relative_to(ROOT)
+        items_checked += 1
+        rel_post = presentation.relative_to(ROOT)
         try:
-            data = parse_front_matter(post)
+            data = parse_front_matter(presentation)
         except Exception as exc:  # pylint: disable=broad-except
             errors[str(rel_post)].append(f"front-matter --- {exc}")
             continue
@@ -191,19 +191,29 @@ def main() -> int:
                     checked += 1
 
                 if looks_like_file(clean_entry):
-                    target = (ROOT / clean_entry).resolve()
-                    # ensure the path stays within repo root
-                    try:
-                        target.relative_to(ROOT)
-                    except ValueError:
-                        errors[str(rel_post)].append(
-                            f"{key}: {clean_entry} --- outside repository"
+                    candidates = [
+                        ROOT / clean_entry,
+                        PRESENTATIONS_DIR / clean_entry.lstrip("/"),
+                    ]
+                    found = False
+                    outside_repo = False
+                    for candidate in candidates:
+                        target = candidate.resolve()
+                        # ensure the path stays within repo root
+                        try:
+                            target.relative_to(ROOT)
+                        except ValueError:
+                            outside_repo = True
+                            continue
+                        if target.exists():
+                            found = True
+                            break
+                    if not found:
+                        reason = (
+                            "outside repository" if outside_repo else "not found"
                         )
-                        checked += 1
-                        continue
-                    if not target.exists():
                         errors[str(rel_post)].append(
-                            f"{key}: {clean_entry} --- not found"
+                            f"{key}: {clean_entry} --- {reason}"
                         )
                     checked += 1
 
@@ -218,7 +228,7 @@ def main() -> int:
         print("\n".join(lines), file=sys.stderr)
         return 1
 
-    print(f"Checked {checked} references across {posts_checked} posts; all exist.")
+    print(f"Checked {checked} references across {items_checked} presentations; all exist.")
     return 0
 
 
