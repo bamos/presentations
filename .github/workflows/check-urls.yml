@@ -1,0 +1,19 @@
+name: Check URLs
+
+on:
+  push:
+
+jobs:
+  check-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Validate file references
+        run: |
+          PYTHON=/Users/bda/opt/miniconda3/bin/python3
+          if [ -x "$PYTHON" ]; then
+            "$PYTHON" check-urls.py
+          else
+            python3 check-urls.py
+          fi
