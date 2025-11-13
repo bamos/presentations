@@ -64,13 +64,18 @@ layout: singlePage
 {% if page.paper %}
 &bull; <a href="{{ page.paper }}">Paper</a>
 {% endif %}
+{% assign summary_text = page.summary | default: "" | strip %}
 {% assign abstract_text = page.abstract | default: "" | strip %}
-{% if abstract_text != "" %}
+{% if summary_text != "" or abstract_text != "" %}
 <br>
 <div class="presentation-divider"></div>
 <div class="presentation-abstract">
   <md-block>
-  <b>Abstract.</b> {{ abstract_text }}
+  {% if summary_text != "" %}
+    {{ summary_text }}
+  {% else %}
+    <b>Abstract.</b> {{ abstract_text }}
+  {% endif %}
   </md-block>
 </div>
 {% else %}
