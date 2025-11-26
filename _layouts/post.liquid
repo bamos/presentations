@@ -59,6 +59,9 @@ layout: singlePage
 &bull; <a href="{{ site.baseurl }}/{{ page.powerpoint }}">Powerpoint</a>
 {% endif %}
 {% if page.pdf %}
+{% if page.source %}
+&bull; <a href="{{ page.source }}" target='_blank'>Source</a>
+{% endif %}
 &bull; <a href="{{ site.baseurl }}/{{ page.pdf }}">PDF</a>
 {% endif %}
 {% if page.paper %}
