@@ -73,7 +73,8 @@ layout: singlePage
   <md-block>
   {% if summary_text != "" %}
     {{ summary_text }}
-  {% else %}
+  {% endif %}
+  {% if abstract_text != "" %}
     <b>Abstract.</b> {{ abstract_text }}
   {% endif %}
   </md-block>
