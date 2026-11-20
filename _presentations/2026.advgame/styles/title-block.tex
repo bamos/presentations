@@ -1,0 +1,37 @@
+% Shared sizing and alignment; the opening group can sit lower without the outline.
+% #1 shifts the paper/author group; #2 sets Brandon's weight; #3 adds closing content.
+\newcommand{\advgamebookend}[3][0cm]{%
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={inner sep=0pt,text=Ink,align=center}]
+\begin{scope}[shift={(current page.south west)}]
+\begin{scope}[yshift=#1]
+ \node[anchor=north west,align=left,text width=10.1cm,font=\fontsize{18}{22}\selectfont]
+  at (.65,8.65) {{\fontseries{sb}\selectfont AdvGame:} Safety Alignment of LMs\\via Non-cooperative Games};
+ \draw[Muted!65,line width=.8pt] (11.15,7.35)--(11.15,8.45);
+ \node[font=\fontsize{18}{22}\selectfont] at (13.35,7.90) {ICML 2026};
+ \foreach \key/\x/\first/\last in {
+  anselm/1.642/Anselm/{Paulus\authorcontribution{\ast}},
+  ilia/3.761/Ilia/Kulikov,
+  brandon/5.881/Brandon/Amos,
+  remi/8/{R\'emi}/Munos,
+  ivan/10.119/Ivan/Evtimov,
+  kamalika/12.239/Kamalika/Chaudhuri,
+  arman/14.358/Arman/{Zharmagambetov\authorcontribution{\ast}}} {
+   \def\authorweight{\mdseries}
+   \ifdefstring{\key}{brandon}{\def\authorweight{#2}}{}
+   \node at (\x,6.10) {\scalebox{.72}{\authorportrait{\key}}};
+   \node[anchor=base,font=\fontsize{6.8}{8.2}\selectfont\authorweight] at (\x,5.40) {\first};
+   \node[anchor=base,font=\fontsize{6.8}{8.2}\selectfont\authorweight] at (\x,5.10) {\last};
+ }
+\end{scope}
+ #3
+ \node[anchor=base west] at (.65,.52) {\href{https://bamos.github.io/presentations}{%
+  \begin{tikzpicture}[baseline=(website.base),draw=Muted,line width=.55pt]
+   \node[anchor=base west,inner sep=0pt,font=\fontsize{9}{11}\selectfont\ttfamily,text=Muted]
+    (website) at (.4,0) {bamos.github.io/presentations};
+   \draw (.11,.08) circle (.11cm);
+   \draw (.11,.08) ellipse (.045cm and .11cm);
+   \draw (0,.08) -- (.22,.08);
+  \end{tikzpicture}}};
+\end{scope}
+\end{tikzpicture}}

@@ -1,0 +1,4 @@
+\talkslide{beam-rl-jailbreak}{Safety RL: training examples}{Timing: provisional}{Judge the response to a jailbreak, with the original harmful intent in context.}{
+\input{figures/beam-rl-jailbreak-example.tex}
+}
+\speak{These are proportions within safety RL, not the whole RL dataset. Safety data is mixed with the other RL tasks. The harmful-to-harmless ratio was five to one. Each displayed prompt and behavior is a constructed teaching example, not a model transcript or measured result. Source of proportions and reward rules: Beam technical report, Safety Post-Training RL. The judge sees the original seed intent: break into a neighbor’s house. The jailbreak framing does not change the underlying harmful intent, so a response giving unauthorized-entry instructions fails the safety judge.}

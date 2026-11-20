@@ -1,0 +1,65 @@
+% Two simple views: predict an attack, then use generated attacks for safety SFT.
+% The supplied attacker image is unchanged; its background matches the model box.
+\definecolor{AttackerBackdrop}{HTML}{F2F4F7}
+\newcommand{\advprompterflow}[1]{%
+\begin{tikzpicture}[remember picture,overlay,
+  block/.style={rounded corners=5pt,draw=Muted!65,line width=1.3pt,
+    fill=AttackerBackdrop,minimum width=3.5cm,minimum height=2.45cm,
+    align=center,inner sep=.18cm,font=\large,text=Ink},
+  flow/.style={-{Latex[length=2.6mm,width=1.8mm]},draw=Ink,line width=.9pt}]
+\begin{scope}[shift={(current page.south west)}]
+  \ifnum#1=0
+    \node[anchor=west,font=\normalsize,text=Ink] at (.65,7.15)
+      {\textbf{Before:} jailbreaking \textbf{one prompt at a time}};
+    \node[anchor=west,font=\normalsize,text=Ink] at (.65,6.55)
+      {\textbf{AdvPrompter:} amortize the jailbreak \textbf{across prompts}};
+    \node[block,draw=LegacyRed!75,minimum width=3.8cm,minimum height=2.8cm]
+      (model) at (7.8,4.45) {};
+    \node[inner sep=0pt] at (7.8,4.73)
+      {\includegraphics[height=1.3cm]{assets/advprompter-attacker.png}};
+    \node[font=\large,text=Ink] at (7.8,3.84) {AdvPrompter LLM};
+    \foreach \i/\y in {1/5.45,2/4.45,3/3.45}{
+      \node[block,minimum height=.70cm,font=\normalsize] (input\i)
+        at (2.65,\y) {Initial prompt \i};
+      \node[block,draw=LegacyRed!65,fill=LegacyRed!4,
+        minimum height=.70cm,font=\normalsize] (output\i)
+        at (12.95,\y) {Jailbreak \i};
+      \draw[flow] (input\i.east)--(input\i.east -| model.west);
+      \draw[flow] (output\i.west -| model.east)--(output\i.west);
+    }
+    \node[draw=Accent!60,fill=Pale,rounded corners=5pt,line width=1pt,
+      inner xsep=.28cm,inner ysep=.20cm,align=center,font=\normalsize,text=Ink]
+      at (7.8,1.8)
+      {\textbf{Amortized optimization:} predicting the solution to optimization problems};
+  \else
+    \node[font=\normalsize,text=Ink] at (2.65,6.95) {\textbf{1. Train attacker}};
+    \node[font=\normalsize,text=Ink] at (12.95,6.95) {\textbf{2. Train defender}};
+    \node[block,draw=LegacyRed!75] (model) at (2.65,5.2) {};
+    \node[inner sep=0pt] at (2.65,5.45)
+      {\includegraphics[height=1.3cm]{assets/advprompter-attacker.png}};
+    \node[font=\large,text=Ink] at (2.65,4.59) {AdvPrompter LLM};
+    \node[block,minimum width=3.8cm] (dataset) at (7.8,5.2)
+      {Static dataset\\[.18cm]{\normalsize Attacks paired with}\\[-.02cm]
+       {\normalsize safe responses}};
+    \node[block,draw=LegacyGreen!75,fill=LegacyGreen!4] (defender) at (12.95,5.2)
+      {Defender\\[.18cm]{\normalsize\color{LegacyGreen}Safety fine-tuning}};
+    \draw[flow] (model.east)--(dataset.west);
+    \draw[flow] (dataset.east)--(defender.west);
+    \ifnum#1=1
+    \node[align=center,font=\normalsize,text=Ink] at (7.8,2.9)
+      {The attack dataset \textbf{stays fixed} during defender fine-tuning};
+    \else
+    \draw[flow,draw=Muted] (defender.south)
+      .. controls (12.95,2.9) and (2.65,2.9) .. (model.south);
+    \node[fill=white,inner xsep=.18cm,font=\normalsize,text=Ink] at (7.8,3.2)
+      {\textbf{3. Iterate} with the updated defender};
+    \node[anchor=west,font=\normalsize,text=Ink] at (.65,2.25)
+      {\textbf{Inefficiency:} Each side trains against an outdated opponent};
+    \node[anchor=west,font=\normalsize,text=Ink] at (.65,1.6)
+      {\textbf{Coverage gaps:} Attacker discovers holes, defender patches, new holes emerge};
+    \node[anchor=west,font=\normalsize,text=Ink] at (.65,.95)
+      {\textbf{No equilibrium guarantee:} No principled convergence and instability issues};
+    \fi
+  \fi
+\end{scope}
+\end{tikzpicture}}

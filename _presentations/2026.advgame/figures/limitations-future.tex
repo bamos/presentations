@@ -1,0 +1,22 @@
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={text=Ink,align=left,inner sep=0pt,font=\normalsize}]
+\begin{scope}[shift={(current page.south west)}]
+ \node[anchor=north west,font=\normalsize\bfseries] at (.65,7.05) {Limits of the defense};
+ \node[anchor=north west,text width=14.2cm] at (1.1,6.6)
+  {No robustness certificate or known ground-truth equilibrium\par
+   Finding one failure is easier than defending against \textbf{every attack}};
+ \draw[Muted!35,line width=.5pt] (.65,5.55)--(15.1,5.55);
+ \node[anchor=north west,font=\normalsize\bfseries] at (.65,5.2) {Broader attack coverage};
+ \node[anchor=north west,text width=14.2cm] at (1.1,4.75)
+  {Augment learned attacks with human-defined collections and strategies\par
+   Known attack families are not manually integrated into the current game};
+ \draw[Muted!35,line width=.5pt] (.65,3.7)--(15.1,3.7);
+ \node[anchor=north west,font=\normalsize\bfseries] at (.65,3.35) {Prompt injection on agents};
+ \node[anchor=north west,text width=14.2cm] at (1.1,2.9)
+  {Attacks through \textbf{untrusted content} in an agent's environment};
+ \draw[Muted!35,line width=.5pt] (.65,2.2)--(15.1,2.2);
+ \node[anchor=north west,font=\normalsize\bfseries] at (.65,1.85) {Other modalities};
+ \node[anchor=north west,text width=14.2cm] at (1.1,1.4)
+  {Extensions to multimodal and non-textual inputs};
+\end{scope}
+\end{tikzpicture}

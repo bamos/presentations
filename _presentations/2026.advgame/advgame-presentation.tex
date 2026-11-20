@@ -1,0 +1,226 @@
+\pdfminorversion=7
+\newif\ifnotesedition
+\ifdefined\speakerscript\noteseditiontrue\fi
+\ifnotesedition
+ \documentclass[11pt,a4paper]{article}
+ \usepackage[hyperref]{beamerarticle}
+ \usepackage[T1]{fontenc}
+ \usepackage{lmodern,microtype}
+ \usepackage[margin=.8in]{geometry}
+ \usepackage{fancyhdr,needspace,xr}
+ \externaldocument[deck-]{build/advgame-presentation}
+ \setjobnamebeamerversion{build/advgame-presentation}
+ \setlength{\parindent}{0pt}\setlength{\parskip}{.65em}
+ \setlength{\emergencystretch}{2em}
+ \clubpenalty=10000\widowpenalty=10000
+ \pagestyle{fancy}\fancyhf{}
+ \fancyhead[L]{\small AdvGame}\fancyhead[R]{\small Speaker outline and notes}
+ \fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\else
+ \documentclass[11pt,t,aspectratio=169]{beamer}
+ \usepackage{lmodern}
+ \makeatletter\def\input@path{{styles/}}\makeatother
+ \usepackage{beamerthemebasic}
+ \hyphenpenalty=10000\exhyphenpenalty=10000
+\fi
+\usepackage{booktabs,tabularx,array,tikz,amsmath,amssymb,multicol}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\definecolor{NoteGray}{HTML}{606975}
+\definecolor{Accent}{HTML}{245D9C}
+\definecolor{Muted}{HTML}{8A8A8A}
+\definecolor{Ink}{HTML}{404040}
+\definecolor{TitleInk}{HTML}{404040}
+\definecolor{Pale}{HTML}{F0F4F8}
+\definecolor{LegacyRed}{HTML}{A11B16}
+\definecolor{LegacyGreen}{HTML}{27803D}
+\definecolor{LegacyCyan}{HTML}{1384A3}
+\input{figures/continuous-builds.tex}
+\input{figures/conversation-example.tex}
+\input{figures/jailbreaking-timeline.tex}
+\input{figures/attack-development.tex}
+\input{figures/advprompter-flow.tex}
+\input{figures/joint-training-builds.tex}
+\input{figures/dpo-loss.tex}
+\input{figures/preference-flow.tex}
+\input{figures/talk-overview.tex}
+\input{figures/defense-stack.tex}
+\input{figures/safety-mixture-example.tex}
+\input{figures/safety-judge-table.tex}
+\title{AdvGame: Safety Alignment of LMs via Non-cooperative Games}
+\author{Anselm Paulus, Ilia Kulikov, Brandon Amos, R\'emi Munos, Ivan Evtimov, Kamalika Chaudhuri, Arman Zharmagambetov}
+\date{ICML 2026}
+\hypersetup{pdftitle={AdvGame: Safety Alignment of LMs via Non-cooperative Games},pdfauthor={Brandon Amos and collaborators}}
+\input{styles/references.tex}
+\newcommand{\lead}[1]{\par{\large\bfseries #1\par}\par\medskip}
+\newcommand{\detail}[1]{{\color{Muted}#1}}
+\newcommand{\metric}[2]{\par{\LARGE\color{Accent}#1\par}{\small #2\par}\par\medskip}
+\newenvironment{statements}{\begin{list}{}{\setlength{\leftmargin}{0pt}\setlength{\labelwidth}{0pt}\setlength{\labelsep}{0pt}\setlength{\topsep}{.15cm}\setlength{\itemsep}{.2cm}\setlength{\parsep}{0pt}}}{\end{list}}
+\input{styles/author-portraits.tex}
+\newcommand{\person}[2]{\begin{column}{.135\linewidth}\centering\setlength{\parskip}{0pt}\authorportrait{#1}\par\vspace{.02cm}{\fontsize{6.8}{8.2}\selectfont #2\par}\end{column}}
+\input{styles/title-block.tex}
+\newcommand{\pendingportion}{}
+\newcommand{\talksection}[1]{\ifnotesedition\gdef\pendingportion{#1}\else\section{#1}\fi}
+\newcommand{\talkslide}[5]{%
+ \ifnotesedition
+  \par\medskip\begin{minipage}{\linewidth}
+  \ifx\pendingportion\empty\else
+   \phantomsection\addcontentsline{toc}{section}{\pendingportion}\global\let\pendingportion\empty
+  \fi
+  \phantomsection\addcontentsline{toc}{subsection}{\ref*{deck-#1}. #2}
+  {\small\color{NoteGray}#3\par}
+  {\Large\bfseries Slide \ref*{deck-#1}. #2\par}\par\smallskip
+  {\small\textbf{Speaker outline:} #4\par}\par\medskip
+  \includeslide[width=\linewidth]{#1}
+  \par
+ \else
+  \begingroup
+  \resetframereferences
+  \ifboolexpr{test {\ifstrequal{#1}{title}} or test {\ifstrequal{#1}{beyond-static}} or test {\ifstrequal{#1}{thanks}}}{\setbeamertemplate{frametitle}{}\setbeamertemplate{footline}{}}{}
+  \ifboolexpr{test {\ifstrequal{#1}{overview-beam}} or test {\ifstrequal{#1}{overview-attacks}} or test {\ifstrequal{#1}{overview-defenses}} or test {\ifstrequal{#1}{thanks}}}{\setbeamertemplate{footline}{}}{}
+  \begin{frame}[label=#1]{#2}\relax#5\end{frame}
+  \endgroup
+ \fi}
+\newcommand{\speak}[1]{\ifnotesedition\nobreak\par\medskip#1\par\end{minipage}\par\fi}
+\ifdefined\previewframes
+ \expandafter\includeonlyframes\expandafter{\previewframes}
+\fi
+\begin{document}
+\color{Ink}
+\ifnotesedition
+ {\huge\bfseries AdvGame\par}
+ Safety Alignment of LMs via Non-cooperative Games\par
+ Brandon Amos and collaborators\par
+ {\small Speaker draft. Timing is provisional. Each build is an explicit slide.\par}
+ {\setlength{\parskip}{0pt}\tableofcontents}\par\bigskip
+\fi
+
+\talksection{Opening}
+
+\begingroup
+\ifnotesedition\else\setbeamertemplate{footline}{}\fi
+\input{slides/title.tex}
+\endgroup
+
+\begingroup
+\ifnotesedition\else\setbeamertemplate{footline}{}\fi
+\input{slides/beam-about.tex}
+\endgroup
+
+\input{slides/vulnerabilities.tex}
+
+\input{slides/vulnerabilities-claude.tex}
+
+\input{slides/defense-stack.tex}
+
+% Physical build: reveal the focus annotation.
+\input{slides/defense-stack-focus.tex}
+
+\talksection{Safety training of models}
+\input{slides/overview-beam.tex}
+
+% Beam opening imported from beam; token efficiency omitted.
+\input{slides/beam-summary.tex}
+
+\input{slides/beam-benchmarks.tex}
+
+\input{slides/beam-frontier.tex}
+\input{slides/beam-report.tex}
+
+\input{slides/beam-overview.tex}
+
+% Physical builds: agentic data, then alignment data; mention safety in speech.
+\input{slides/beam-overview-agentic.tex}
+\input{slides/beam-overview-alignment.tex}
+
+\input{slides/beam-sft.tex}
+
+\input{slides/beam-sft-data.tex}
+\input{slides/beam-sft-jailbreak.tex}
+\input{slides/beam-sft-harmless.tex}
+
+\input{slides/beam-rl.tex}
+
+\input{slides/beam-rl-judge.tex}
+
+\input{slides/beam-rl-data.tex}
+\input{slides/beam-rl-multiturn.tex}
+\input{slides/beam-rl-agentic.tex}
+\input{slides/beam-rl-jailbreak.tex}
+
+\input{slides/beyond-static.tex}
+
+\talksection{Learning the attacker}
+\input{slides/overview-attacks.tex}
+
+\input{slides/what-is-an-attack.tex}
+
+\input{slides/attack-timeline.tex}
+
+\input{slides/attack-timeline-advprompter.tex}
+
+\input{slides/advprompter.tex}
+
+\input{slides/attack-objectives.tex}
+
+\input{slides/pointwise.tex}
+
+\input{slides/pairwise.tex}
+
+\input{slides/attacker-objective.tex}
+
+% Physical build: score comparison before revealing the loss.
+
+\input{slides/attacker-loss.tex}
+
+\talksection{Learning the defender}
+\input{slides/overview-defenses.tex}
+
+\input{slides/certified-defense-bridge.tex}
+
+\input{slides/advprompter-dataset.tex}
+
+\input{slides/alternation.tex}
+
+\input{slides/joint-game.tex}
+
+\input{slides/selfredteam.tex}
+
+\input{slides/shared-conflict.tex}
+
+\input{slides/zero-sum.tex}
+
+\input{slides/reward-swap.tex}
+
+\input{slides/objectives.tex}
+
+% Physical build: mirror the attacker score comparison.
+
+\input{slides/defender-loss.tex}
+
+\input{slides/separate.tex}
+
+\input{slides/rollouts.tex}
+
+\talksection{Results}
+\input{slides/experiments.tex}
+
+\input{slides/main-results.tex}
+
+\input{slides/compliance.tex}
+
+\input{slides/adaptive-qwen.tex}
+
+\input{slides/judge-ablation.tex}
+
+\input{slides/other-ablations.tex}
+
+\input{slides/ipo.tex}
+
+\input{slides/loss-ablation.tex}
+
+\talksection{Limitations and future work}
+\input{slides/limitations.tex}
+
+\input{slides/thanks.tex}
+
+\end{document}

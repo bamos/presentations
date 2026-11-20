@@ -1,0 +1,24 @@
+% Native circular masks; source photographs stay unchanged.
+% Crop centers exclude old square backgrounds and inconsistent inset rings.
+% A compact math glyph avoids double-raising an already raised text asterisk.
+\newcommand{\authorcontribution}[1]{\nobreak\hspace{.02em}\raisebox{.28ex}{\scalebox{.8}{\ensuremath{#1}}}}
+\newcommand{\portraitcrop}[4]{%
+  \begin{tikzpicture}
+    \path[use as bounding box] (-.69,-.69) rectangle (.69,.69);
+    \begin{scope}
+      \clip (0,0) circle[radius=.675cm];
+      \node[inner sep=0pt] at (#3,#4)
+        {\includegraphics[height=#2cm]{assets/author-#1.png}};
+    \end{scope}
+    \draw[Muted!35,line width=.35pt] (0,0) circle[radius=.675cm];
+  \end{tikzpicture}}
+\newcommand{\defineportrait}[4]{%
+  \expandafter\def\csname portrait@#1\endcsname{\portraitcrop{#1}{#2}{#3}{#4}}}
+\newcommand{\authorportrait}[1]{\csname portrait@#1\endcsname}
+\defineportrait{anselm}{1.45946}{-.00608}{-.01216}
+\defineportrait{ilia}{1.64725}{0}{.03716}
+\defineportrait{brandon}{1.43438}{0}{0}
+\defineportrait{remi}{1.48222}{0}{.01044}
+\defineportrait{ivan}{1.44845}{-.01399}{.00699}
+\defineportrait{kamalika}{1.69964}{-.02914}{-.04371}
+\defineportrait{arman}{2.35853}{-.04566}{-.45463}

@@ -1,0 +1,13 @@
+model,harmless_compliance,harmful_refusal_or_pivot,pixel_x,pixel_y,source
+Beam,81.5,88.9,1085.07,626.86,report text
+Muse Glimmer,85.7,85.7,1194.09,686.73,digitized supplied chart; approximate
+GPT-OSS 120B,89.0,81.1,1279.8,773.14,digitized supplied chart; approximate
+Inkling,91.0,79.9,1331.57,795.82,digitized supplied chart; approximate
+Qwen 3.8 Max,92.2,76.5,1362.95,859.9,digitized supplied chart; approximate
+Kimi K3,93.8,74.7,1404.49,893.93,digitized supplied chart; approximate
+Nemotron 3 Ultra,90.6,73.4,1321.66,918.32,digitized supplied chart; approximate
+GLM-5.3,94.0,72.8,1409.0,930.2,digitized supplied chart; approximate
+Kimi K2.6,93.0,72.3,1382.37,938.49,digitized supplied chart; approximate
+DeepSeek V4.1 Flash,95.8,70.0,1456.24,982.44,digitized supplied chart; approximate
+GLM-5.2,96.2,65.2,1466.78,1073.13,digitized supplied chart; approximate
+DeepSeek V4 Pro,97.9,55.8,1510.7,1250.35,digitized supplied chart; approximate

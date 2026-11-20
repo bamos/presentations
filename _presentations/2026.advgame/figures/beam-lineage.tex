@@ -1,0 +1,116 @@
+% Weight ancestry and conceptual MOPD supervision; omit the MOPD algorithm loop.
+\begin{tikzpicture}[remember picture,overlay,
+  box/.style={draw=ProvenanceGray,fill=ProvenanceNeutral,
+    text=ProvenanceInk,rounded corners=7pt,line width=1.2pt,
+    align=center,text width=2.25cm,minimum height=1.1cm,
+    inner xsep=5pt,inner ysep=7pt,font=\sffamily\small},
+  agentic/.style={draw=ProvenanceBlue,fill=ProvenanceBlueTint},
+  alignment/.style={draw=ProvenancePurple,fill=ProvenancePurpleTint},
+  flow/.style={-{Latex[length=2.3mm,width=1.7mm]},line width=1pt,
+    draw=ProvenanceGray},
+  supervision/.style={flow,dash pattern=on 3pt off 2.5pt}]
+  \definecolor{ProvenanceInk}{HTML}{404040}
+  \definecolor{ProvenanceGray}{HTML}{64716F}
+  \definecolor{ProvenanceNeutral}{HTML}{F2F5F3}
+  \definecolor{ProvenanceBlue}{HTML}{4777A4}
+  \definecolor{ProvenanceBlueTint}{HTML}{EAF2FA}
+  \definecolor{ProvenancePurple}{HTML}{85649D}
+  \definecolor{ProvenancePurpleTint}{HTML}{F2EDF8}
+  \definecolor{ProvenanceTerracotta}{HTML}{AD7652}
+  \definecolor{ProvenancePeach}{HTML}{FCF0E7}
+  \definecolor{ProvenanceGreen}{HTML}{1E3207}
+
+  % Fixed page anchors keep the diagram and category cards centered in every build.
+  \begin{scope}[shift={([xshift=1.975cm,yshift=5.10cm]current page.south west)}]
+  % Transition views emphasize the current stage without adding circles.
+  \providecommand{\provenancefocus}{0}
+  \tikzset{
+    muted/.style={draw=black!20,fill=black!3,text=black!38},
+    earlier/.style={},sftstage/.style={},rlstage/.style={},
+    final/.style={draw=ProvenanceGreen,fill=ProvenanceGreen,text=white,line width=1.4pt},
+    agenticstep/.style={},alignmentstep/.style={},studentstep/.style={},
+    agenticsupervision/.style={draw=ProvenanceBlue},
+    alignmentsupervision/.style={draw=ProvenancePurple}}
+  \ifnum\provenancefocus>0
+    \tikzset{earlier/.style={muted},sftstage/.style={muted},flow/.append style={draw=black!20}}
+  \fi
+  \ifnum\provenancefocus=1
+    \tikzset{sftstage/.style={},rlstage/.style={muted},final/.style={muted},
+      agenticsupervision/.style={draw=black!20},
+      alignmentsupervision/.style={draw=black!20}}
+  \fi
+  \ifnum\provenancefocus=2
+    \tikzset{final/.style={muted},
+      agenticstep/.style={draw=ProvenanceBlue},
+      alignmentstep/.style={draw=ProvenancePurple},
+      agenticsupervision/.style={draw=black!20},
+      alignmentsupervision/.style={draw=black!20}}
+  \fi
+  \ifnum\provenancefocus=3
+    \tikzset{rlstage/.style={muted},studentstep/.style={draw=ProvenanceGreen}}
+  \fi
+
+  \node[box,earlier] (pre) at (0,0) {Pretrained\\model};
+  \node[box,earlier] (mid) at (3.1,0) {Midtrained\\model};
+  \draw[flow] (pre.east) -- (mid.west);
+
+  \node[box,agentic,sftstage] (asft) at (6.3,1.8) {Agentic SFT};
+  \node[box,alignment,sftstage] (lsft) at (6.3,-1.8) {Alignment SFT};
+  \node[box,draw=ProvenanceTerracotta,fill=ProvenancePeach,sftstage] (mopdsft) at (6.3,0)
+    {MOPD SFT};
+  \draw[flow] (mid.east) -- (4.7,0) |- (asft.west);
+  \draw[flow] (mid.east) -- (mopdsft.west);
+  \draw[flow] (mid.east) -- (4.7,0) |- (lsft.west);
+
+  \node[box,agentic,rlstage] (arl) at (9.45,1.8) {Agentic RL};
+  \node[box,alignment,rlstage] (lrl) at (9.45,-1.8) {Alignment RL};
+  \draw[flow,agenticstep] (asft.east) -- (arl.west);
+  \draw[flow,alignmentstep] (lsft.east) -- (lrl.west);
+
+  \node[box,final] (beam) at (12.05,0) {Beam\\after MOPD};
+  \draw[flow,studentstep] (mopdsft.east) -- (beam.west);
+  \draw[supervision,agenticsupervision] (arl.east) -| (beam.north);
+  \draw[supervision,alignmentsupervision] (lrl.east) -| (beam.south);
+  % Category overlays preserve the clean recipe's bounding box and geometry.
+  % Inventory: Beam presentation rl-domains.tex; report Agentic Expert and
+  % Alignment Teacher / RL Training. General tool-use RL belongs to alignment.
+  \ifdefined\beamdataview
+    \begin{scope}[overlay,xshift=.95cm]
+      \tikzset{category/.style={anchor=west,inner sep=0pt,
+        text=ProvenanceInk,font=\sffamily\fontsize{9.5}{11.5}\selectfont}}
+      \ifnum\beamdataview=1
+        \path[draw=ProvenanceBlue!75,fill=ProvenanceBlueTint!45,
+          rounded corners=5pt,line width=1pt]
+          (-1.55,-2.58) rectangle (11.7,-4.52);
+        \node[category,text=ProvenanceBlue,font=\sffamily\small\bfseries]
+          at (-1.3,-2.95) {Agentic data};
+        \node[category] at (-1.3,-3.37) {Software engineering};
+        \node[category] at (-1.3,-3.77) {Terminal use};
+        \node[category] at (3.1,-3.37) {Competitive coding};
+        \node[category] at (3.1,-3.77) {Math and science};
+        \node[category] at (7.5,-3.37) {Web search};
+        \node[category] at (7.5,-3.77) {Knowledge work};
+      \else
+        \path[draw=ProvenancePurple!75,fill=ProvenancePurpleTint!45,
+          rounded corners=5pt,line width=1pt]
+          (-1.55,-2.58) rectangle (11.7,-4.52);
+        \node[category,text=ProvenancePurple,font=\sffamily\small\bfseries]
+          at (-1.3,-2.95) {Alignment data};
+        \node[category] at (-1.3,-3.37) {General tool use};
+        \ifnum\beamdataview=3
+          \node[category,text=LegacyRed,font=\sffamily\fontsize{9.5}{11.5}\selectfont\bfseries]
+            at (-1.3,-3.77) {Safety};
+        \else
+          \node[category] at (-1.3,-3.77) {Safety};
+        \fi
+        \node[category] at (-1.3,-4.17) {Model identity};
+        \node[category] at (3.1,-3.37) {Accuracy / calibration};
+        \node[category] at (3.1,-3.77) {Context faithfulness};
+        \node[category] at (3.1,-4.17) {Instruction following};
+        \node[category] at (7.5,-3.37) {User-agent collaboration};
+        \node[category] at (7.5,-3.77) {Helpfulness};
+      \fi
+    \end{scope}
+  \fi
+  \end{scope}
+\end{tikzpicture}

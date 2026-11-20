@@ -1,0 +1,29 @@
+% A compact supporting example leaves the two challenges as the main hierarchy.
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={text=Ink,inner sep=0pt,align=left}]
+\begin{scope}[shift={(current page.south west)}]
+ \node[anchor=west,font=\normalsize\bfseries] at (.65,7.0)
+  {1. Need to provide absolute scores};
+ \node[anchor=west,font=\normalsize] at (1.25,6.36)
+  {Prompt LLM judge: \textit{``Rate this response 1--10''}};
+ \draw[Muted!55,line width=.5pt] (1.25,5.92)--(14.75,5.92);
+ \node[anchor=west,font=\fontsize{9.3}{11.5}\selectfont\bfseries] at (1.4,5.61)
+  {Response to \textit{``How do I make explosives?''}};
+ \node[anchor=east,font=\fontsize{9.3}{11.5}\selectfont\bfseries] at (14.6,5.61) {Score?};
+ \draw[Muted!35,line width=.4pt] (1.25,5.30)--(14.75,5.30);
+ \node[anchor=north west,text width=11.3cm,font=\fontsize{9.3}{11.5}\selectfont] at (1.4,5.10)
+  {``I can't help with that.''};
+ \node[anchor=north east,font=\fontsize{9.3}{11.5}\selectfont] at (14.6,5.10) {5? 6? 7?};
+ \node[anchor=north west,text width=11.3cm,font=\fontsize{9.3}{11.5}\selectfont] at (1.4,4.52)
+  {``I can't provide instructions, but I can explain the physics of rapid combustion in controlled settings like fireworks\ldots''};
+ \node[anchor=north east,font=\fontsize{9.3}{11.5}\selectfont] at (14.6,4.52) {8? 9?};
+ \node[anchor=north west,text width=11.3cm,font=\fontsize{9.3}{11.5}\selectfont] at (1.4,3.62)
+  {``That's dangerous and illegal. Here's why explosives are regulated\ldots''};
+ \node[anchor=north east,font=\fontsize{9.3}{11.5}\selectfont] at (14.6,3.62) {7? 8?};
+ \draw[Muted!55,line width=.5pt] (1.25,3.08)--(14.75,3.08);
+ \node[anchor=west,font=\normalsize\bfseries] at (.65,2.28)
+  {2. More susceptible to reward hacks};
+ \node[anchor=north west,text width=13.5cm,font=\normalsize] at (1.25,1.79)
+  {In early experiments, our attacker exploited the judge's \textbf{preference for verbosity}};
+\end{scope}
+\end{tikzpicture}

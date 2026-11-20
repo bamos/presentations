@@ -1,0 +1,23 @@
+% Rounded architecture and campaign scale, as requested by the author.
+% 100M covers the campaign, including derisking and distillation.
+\begingroup
+\newcommand{\beamstat}[1]{{\fontsize{16}{19}\selectfont\fontseries{sb}\selectfont #1}}
+{\fontsize{16}{19}\selectfont
+\beamstat{501B} total parameters / \beamstat{23B} active per token\par}
+\vspace{.48cm}
+\noindent\begin{tikzpicture}
+\node[draw=Ink,line width=1.1pt,rounded corners=5pt,
+  inner xsep=.28cm,inner ysep=.30cm,
+  text width=\dimexpr\linewidth-.60cm\relax,align=left] (campaign) {
+  \begin{tabularx}{\linewidth}{@{}XXX@{}}
+  \beamstat{10.5K} & \beamstat{4 weeks} & \beamstat{100M+} \\
+  GB300 GPUs & of training & rollouts generated \\
+  \end{tabularx}
+};
+\node[anchor=west,fill=white,text=Ink,inner xsep=.12cm,inner ysep=.02cm,
+  font=\normalsize\fontseries{sb}\selectfont]
+  at ([xshift=.16cm]campaign.north west) {RL};
+\end{tikzpicture}\par
+\endgroup
+\vfill
+\input{figures/beam-report-peek.tex}

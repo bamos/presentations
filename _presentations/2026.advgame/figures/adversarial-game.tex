@@ -1,0 +1,12 @@
+% Larger illustration, natively clipped to round its corners; original bytes retained.
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={text=Ink,align=left,inner sep=0pt}]
+\begin{scope}[shift={(current page.south west)}]
+ \node[anchor=north west,text width=14.7cm,font=\normalsize] at (.65,7.0)
+   {Train both agents \textbf{concurrently}};
+ \begin{scope}
+  \clip[rounded corners=8pt] (2.1,1.9) rectangle (13.9,5.617);
+  \node at (8,3.7585) {\includegraphics[width=11.8cm]{assets/game-illustration.png}};
+ \end{scope}
+\end{scope}
+\end{tikzpicture}

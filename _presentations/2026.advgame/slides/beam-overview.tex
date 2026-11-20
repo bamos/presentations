@@ -1,0 +1,4 @@
+\talkslide{beam-overview}{Beam}{Timing: provisional}{I was recently part of the team training Beam at Reflection, including a large-scale safety-training effort.}{
+\input{figures/beam-lineage.tex}
+}
+\speak{This was a broad team effort. The diagram is the training lineage from our Beam presentation. The pretrained model is midtrained, then branches into Agentic SFT, Alignment SFT, and MOPD SFT. The two specialists continue through RL. MOPD SFT supplies the student's starting weights, and the two RL specialists provide supervision during distillation. We are learning from both specialists, rather than averaging their weights. The next builds show the agentic and alignment data. Mention safety as one part of alignment. Source detail: \href{https://reflection.ai/documents/beam-model-tech-report}{Beam technical report}.}

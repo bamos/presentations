@@ -1,0 +1,20 @@
+% The same overview recurs at each of the three stage boundaries.
+\newcommand{\talkoverview}[1]{%
+\begin{tikzpicture}[every node/.style={align=left,inner sep=0pt}]
+\path[use as bounding box] (0,0) rectangle (14.5,5.8);
+\def\recapwidth{13.0cm}
+\foreach \i/\heading/\description/\y in {
+  1/Safety training of models/{SFT, RL, and judges {\color{Muted}(e.g., as in Beam)}}/4.8,
+  2/{Learning the attacker {\normalfont\color{Muted}(online DPO)}}/{AdvPrompter, learned attacks, judge feedback}/2.9,
+  3/{Learning the defender {\normalfont\color{Muted}(online DPO)}}/{Joint training, separate rewards, robustness and utility}/1.0}{%
+  \ifnum#1=0\relax
+    \def\stagecolor{Ink}%
+  \else
+    \ifnum#1=\i\relax\def\stagecolor{Ink}\else\def\stagecolor{Muted}\fi
+  \fi
+  \node[anchor=west,text=\stagecolor,font=\normalsize\bfseries] at (.6,\y+.2) {\i.};
+  \node[anchor=west,text=\stagecolor,font=\normalsize\bfseries] at (.6+.6,\y+.2) {\heading};
+  \node[anchor=north west,text=\stagecolor,font=\normalsize,text width=\recapwidth] at (1.2,\y-.2) {\description};
+}
+\end{tikzpicture}%
+}

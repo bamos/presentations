@@ -1,0 +1,12 @@
+% Shared cutout used both to introduce Beam and to close the Beam section.
+\begin{center}
+\begin{tikzpicture}
+  \path[use as bounding box] (0,0) rectangle (14.7,2.4);
+  \clip (0,0) rectangle (14.7,2.4);
+  \fill[black!10] (2.55,-.1) rectangle (12.35,2.28);
+  \node[anchor=north,inner sep=0pt] at (7.4,2.35)
+    {\href{https://reflection.ai/documents/beam-model-tech-report}{\includegraphics[width=9.8cm]{figures/beam-intro-report-opening.png}}};
+  \draw[black!20,line width=.5pt] (2.5,-.1) -- (2.5,2.35)
+    -- (12.3,2.35) -- (12.3,-.1);
+\end{tikzpicture}
+\end{center}

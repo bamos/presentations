@@ -1,0 +1,39 @@
+% Matched actor layout: AdvPrompter trains the attacker; AdvGame trains both.
+\newcommand{\attackdevelopment}[4]{%
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={font=\normalsize,align=center},
+ model/.style={rounded corners=2pt,line width=.8pt,minimum height=1.1cm,
+   minimum width=2.5cm,inner sep=.12cm},
+ flow/.style={-{Latex[length=2.2mm]},line width=.8pt}]
+\begin{scope}[shift={(current page.south west)}]
+ \node[anchor=north west,align=left,inner sep=0pt] at (.65,6.65)
+  {\begin{minipage}{14.7cm}\lead{#2}\end{minipage}};
+ \node[text width=1.6cm] (seed) at (1.2,4.65) {Seed\\prompt};
+ \node[model,draw=LegacyRed,fill=LegacyRed!4,text=LegacyRed] (a) at (4.0,4.65) {Attacker};
+ \node[model,draw=LegacyGreen,fill=LegacyGreen!4,text=LegacyGreen] (d) at (10.3,4.65) {Defender};
+ \node[text width=1.9cm] (response) at (14.1,4.65) {Response};
+ \draw[flow] (seed)--(a);
+ \draw[flow] (a)--node[above]{Adversarial prompt}(d);
+ \draw[flow] (d)--(response);
+ \node[text=LegacyRed,font=\large\bfseries] at (4.0,5.55) {Train};
+ \ifnum#1=0
+  \node[text=Muted,font=\large\bfseries] at (10.3,5.55) {Keep fixed};
+  \node[text=LegacyRed,font=\small] at (4.0,3.85) {AdvPrompter};
+ \else
+  \node[text=LegacyGreen,font=\large\bfseries] at (10.3,5.55) {Train};
+  \node[draw=Accent,fill=Pale,rounded corners=2pt,minimum width=2.5cm,
+    minimum height=.7cm] (judge) at (14.1,2.85) {Judge};
+  \draw[flow] (response)--(judge);
+  \draw[flow,rounded corners=4pt] (judge.west)--(4.0,2.85)--(a.south);
+  \draw[flow] (10.3,2.85)--(d.south);
+  \node[fill=white,inner xsep=.12cm] at (7.0,2.85) {Update both models};
+ \fi
+ \node[anchor=north west,align=left,inner sep=0pt] at (.65,2.5)
+  {\begin{minipage}{14.7cm}#3\end{minipage}};
+ \if\relax\detokenize{#4}\relax\else
+  \node[anchor=south west,align=left,inner sep=0pt] at (.65,.45)
+   {\begin{minipage}{14.7cm}\slideref{#4}\end{minipage}};
+ \fi
+\end{scope}
+\end{tikzpicture}%
+}

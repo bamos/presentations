@@ -1,0 +1,38 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemebasic}[2026/11/16 Basic research presentation theme]
+% Workflow adapted from the Beam deck; this plain theme is independent of branding.
+\RequirePackage[T1]{fontenc}
+\RequirePackage{graphicx}
+\RequirePackage[default,bold,type1]{sourcesanspro}
+\renewcommand{\familydefault}{\sfdefault}
+\usefonttheme{professionalfonts}
+\definecolor{Ink}{HTML}{404040}
+\definecolor{TitleInk}{HTML}{404040}
+\definecolor{Accent}{HTML}{245D9C}
+\definecolor{Muted}{HTML}{8A8A8A}
+\definecolor{Pale}{HTML}{F0F4F8}
+\setbeamercolor{normal text}{fg=Ink,bg=white}
+\setbeamercolor{structure}{fg=Accent}
+\setbeamercolor{frametitle}{fg=TitleInk,bg=white}
+\setbeamercolor{title}{fg=TitleInk}
+\setbeamercolor{alerted text}{fg=Accent}
+\setbeamercolor{block title}{fg=Ink,bg=white}
+\setbeamercolor{block body}{fg=Ink,bg=white}
+\setbeamersize{text margin left=.65cm,text margin right=.65cm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{itemize item}{\small\textbullet}
+\setbeamerfont{frametitle}{size=\fontsize{20}{24}\selectfont,series=\fontseries{sb}}
+\setbeamerfont{title}{size=\fontsize{26}{31}\selectfont,series=\fontseries{sb}}
+\setbeamertemplate{frametitle}{%
+ \vspace{.20cm}\insertframetitle\par\vspace{.12cm}
+ \vspace{.10cm}}
+\setbeamertemplate{footline}{%
+ \hbox to \paperwidth{\hfill\vbox to .55cm{\vfil}\hspace*{.65cm}}%
+ \begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=base east,inner sep=0pt,font=\referencefontsize,text=Muted]
+    at ([xshift=-.65cm,yshift=.30cm]current page.south east)
+    {\insertframenumber};
+ \end{tikzpicture}%
+ \renderframereferences}
+\setlength{\parskip}{.35em}

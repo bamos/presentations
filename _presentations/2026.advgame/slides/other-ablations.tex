@@ -1,0 +1,14 @@
+\talkslide{other-ablations}{Other ablations}{Timing: provisional}{The full table shows which components matter in this recipe.}{
+\par{\small\textbf{Qwen2.5-7B}\par}
+\vspace{.3cm}\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\linewidth}{@{}Xrrrrr@{}}\toprule
+Variant & IFBench $\uparrow$ & ArenaHard $\uparrow$ & HB $\downarrow$ & WJB $\downarrow$ & DAN $\downarrow$\\\midrule
+DPO-MD &30.7&61.3&4.7&8.5&10.3\\
++ fixed attacker &29.9&61.8&5.1&16.6&15.0\\
++ point-wise judge &29.2&56.3&14.1&30.8&20.7\\
++ no EMA &27.3&60.6&19.9&49.5&25.0\\\bottomrule
+\end{tabularx}\par
+
+
+}
+\speak{The full table shows which components matter in this recipe. A fixed attacker still gives the defender training data, but the WJB and DAN results are worse. The paper's fixed-attacker variant retains format training while removing the jailbreak-improvement signal. Removing EMA has a much larger effect here. These results support the combined recipe: keep the attacker learning, compare responses jointly, and smooth the generators. They do not tell us that the exact same settings will be optimal at a different model scale. Source detail: Qwen2.5-7B; AdvGame, Table 5. Each ablation changes the DPO-MD recipe.}

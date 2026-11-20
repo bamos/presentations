@@ -1,0 +1,51 @@
+% Parallel computations flow downward; the judge contains the preference.
+\newcommand{\preferenceflow}[1]{%
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={font=\normalsize,align=center,text=Ink},
+ model/.style={draw=LegacyGreen!70,fill=LegacyGreen!4,rounded corners=4pt,
+   minimum width=3.0cm,minimum height=.75cm},
+ response/.style={draw=Muted!45,fill=Pale,rounded corners=4pt,
+   minimum width=3.0cm,minimum height=.75cm},
+ flow/.style={-{Latex[length=2.2mm]},draw=Ink,line width=.9pt}]
+\begin{scope}[shift={(current page.south west)}]
+ \ifnum#1=0
+  \node (seed) at (8,7.05) {Seed prompt $x_s$};
+  \node[draw=LegacyRed!70,fill=LegacyRed!4,rounded corners=4pt,
+   minimum width=3cm,minimum height=.75cm] (a) at (4.9,5.85) {Attack $x_1$};
+  \node[draw=LegacyRed!70,fill=LegacyRed!4,rounded corners=4pt,
+   minimum width=3cm,minimum height=.75cm] (b) at (11.1,5.85) {Attack $x_2$};
+  \coordinate (split) at (8,6.55);
+  \draw[Ink,line width=.9pt] (seed.south)--(split);
+  \draw[flow,rounded corners=4pt] (split)--(4.9,6.55)--(a.north);
+  \draw[flow,rounded corners=4pt] (split)--(11.1,6.55)--(b.north);
+  \def\modely{4.65}\def\responsey{3.45}\def\judgey{1.30}
+  \def\preference{x_2\succ x_1}
+ \else
+  \node (seed) at (8,6.9) {Attack $x$};
+  \def\modely{5.25}\def\responsey{3.75}\def\judgey{1.55}
+  \def\preference{y_2\succ y_1}
+ \fi
+ \node[model] (da) at (4.9,\modely) {Defender};
+ \node[model] (db) at (11.1,\modely) {Defender};
+ \node[response] (ra) at (4.9,\responsey) {Response $y_1$};
+ \node[response] (rb) at (11.1,\responsey) {Response $y_2$};
+ \node[draw=Accent!65,fill=Pale,rounded corners=4pt,
+   minimum width=3.7cm,minimum height=1.1cm] (judge) at (8,\judgey)
+   {Pairwise judge\\[.08cm]$\preference$};
+ \ifnum#1=0
+  \draw[flow] (a.south)--(da.north);
+  \draw[flow] (b.south)--(db.north);
+ \else
+  \coordinate (split) at (8,6.25);
+  \draw[Ink,line width=.9pt] (seed.south)--(split);
+  \draw[flow,rounded corners=4pt] (split)--(4.9,6.25)--(da.north);
+  \draw[flow,rounded corners=4pt] (split)--(11.1,6.25)--(db.north);
+ \fi
+ \draw[flow] (da.south)--(ra.north);
+ \draw[flow] (db.south)--(rb.north);
+ \coordinate (merge) at ([yshift=.62cm]judge.north);
+ \draw[Ink,line width=.9pt,rounded corners=4pt] (ra.south)--(ra.south |- merge)--(merge);
+ \draw[Ink,line width=.9pt,rounded corners=4pt] (rb.south)--(rb.south |- merge)--(merge);
+ \draw[flow] (merge)--(judge.north);
+\end{scope}
+\end{tikzpicture}}

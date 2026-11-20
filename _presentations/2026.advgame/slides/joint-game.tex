@@ -1,0 +1,4 @@
+\talkslide{joint-game}{A different paradigm: adversarial games}{Timing: provisional}{AdvGame trains two models in one online loop.}{
+\input{figures/adversarial-game.tex}
+}
+\speak{AdvGame trains two models in one online loop. Each round produces prompts and responses under evolving policies, judges them, and updates both sides. Concurrent adaptation describes this learning process; it does not require every GPU operation or optimizer step to run at exactly the same instant. Each side adapts online to the other's current capabilities. Attack surfaces shift as models change, so a fixed opponent does not capture the whole interaction. We want equilibria reflecting long-run interaction; this is a motivation, not a claim of convergence in neural training.}

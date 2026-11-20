@@ -1,0 +1,20 @@
+\talkslide{compliance}{Benign compliance remains a limitation}{Timing: provisional}{This qualification deserves its own slide.}{
+
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{@{}Xrrrr@{}}\toprule
+&\multicolumn{2}{c}{Qwen2.5-7B}&\multicolumn{2}{c}{Llama3.1-8B}\\
+&Original&AdvGame&Original&AdvGame\\\midrule
+WJB benign $\uparrow$&100.0&94.4&98.8&69.9\\
+XSTest benign $\uparrow$&82.4&81.2&84.4&88.0\\\bottomrule
+\end{tabularx}\par
+\vspace{.5cm}
+\begin{tikzpicture}
+ \node[rounded corners=5pt,draw=Accent!35,fill=Accent!6,
+  inner sep=.25cm,text width=13.8cm,align=left,text=Ink,font=\normalsize]
+ {\textbf{Lower harmful compliance alone is insufficient}\\[.12cm]
+  Llama improves on XSTest but \textbf{loses 28.9 percentage points} on WJB benign};
+\end{tikzpicture}
+
+
+}
+\speak{This qualification deserves its own slide. Llama loses almost twenty-nine percentage points on benign WildJailbreak while improving on XSTest. The paper explains that the benchmarks test different kinds of over-refusal: lexical triggers versus benign prompts with jailbreak-like structure. It attributes the gap partly to limited attacker coverage, but that explanation is not a causal ablation. The practical lesson is to evaluate harmful and harmless behavior separately and across more than one distribution. These are results on fixed evaluation prompts. Next we rerun adaptive attacks against each defended checkpoint. Source detail: AdvGame-DPO-MD; published Table 3 and Appendix C.4. Compliance rates (\%).}

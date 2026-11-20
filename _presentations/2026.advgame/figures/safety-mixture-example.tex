@@ -1,0 +1,49 @@
+% Fixed chart geometry across category examples; proportions from Beam report.
+\definecolor{MixDark}{HTML}{203307}
+\definecolor{MixLight}{HTML}{A6AF9A}
+\definecolor{MixMid}{HTML}{838E72}
+\definecolor{MixJail}{HTML}{607544}
+\definecolor{MixAgent}{HTML}{CBE241}
+% #1: SFT=0, RL=1; #2: selected slice; #3: category; #4: example;
+% #5: response label; #6: response/judgment.
+\newcommand{\safetymixexample}[6]{%
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={text=Ink,font=\normalsize,inner sep=0pt,align=left}]
+\begin{scope}[shift={(current page.south west)}]
+ \ifnum#1=0
+  \def\slices{90/-115.2/MixDark/57/white,-115.2/-216/MixLight/28/Ink,-216/-270/MixMid/15/white}
+ \else
+  \def\slices{90/-150.48/MixDark/66.8/white,-150.48/-180.36/MixLight/8.3/Ink,-180.36/-207.72/MixJail/7.6/white,-207.72/-270/MixAgent/17.3/Ink}
+ \fi
+ \begin{scope}[shift={(3.65,4.45)}]
+  \foreach \a/\b/\c/\v/\t [count=\i] in \slices {
+   \filldraw[fill=\c,draw=white,line width=1pt]
+    (0,0)--(\a:2.15) arc[start angle=\a,end angle=\b,radius=2.15]--cycle;
+   \pgfmathsetmacro{\mid}{(\a+\b)/2}
+   \node[text=\t,font=\fontsize{13}{15}\selectfont] at (\mid:1.41) {\v\%};
+  }
+ \end{scope}
+ \ifnum#1=0
+  \foreach \c/\t/\y [count=\i] in {MixDark/Harmful direct requests/1.8,MixLight/Harmful jailbreaks/1.3,MixMid/Harmless requests/.8}{
+   \ifnum\i=#2\def\legendweight{\bfseries}\else\def\legendweight{}\fi
+   \fill[\c] (1.25,\y-.08) rectangle (1.41,\y+.08);
+   \node[anchor=west,font=\normalsize\legendweight] at (1.6,\y) {\t};
+  }
+ \else
+  \foreach \c/\t/\x/\y [count=\i] in {MixDark/Single-turn/1.0/1.6,MixLight/Multi-turn/3.9/1.6,MixJail/Jailbreak/1.0/1.0,MixAgent/Agentic/3.9/1.0}{
+   \ifnum\i=#2\def\legendweight{\bfseries}\else\def\legendweight{}\fi
+   \fill[\c] (\x,\y-.08) rectangle (\x+.16,\y+.08);
+   \node[anchor=west,font=\normalsize\legendweight] at (\x+.33,\y) {\t};
+  }
+ \fi
+ \node[anchor=north west,font=\normalsize\bfseries,text width=7.7cm] at (7.1,6.6) {#3};
+ \node[anchor=north west,text=Muted] at (7.1,5.95) {Example};
+ \node[anchor=north west,text width=7.7cm] (example) at (7.1,5.4) {#4};
+ \coordinate (divider) at ([yshift=-.45cm]example.south west);
+ \draw[Muted!35,line width=.6pt] (divider)--++(7.9,0);
+ \node[anchor=north west,font=\normalsize\bfseries] (target)
+  at ([yshift=-.35cm]divider) {#5};
+ \node[anchor=north west,text width=7.7cm]
+  at ([yshift=-.25cm]target.south west) {#6};
+\end{scope}
+\end{tikzpicture}}

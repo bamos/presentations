@@ -1,0 +1,13 @@
+\talkslide{vulnerabilities}{Safety alignment is not solved!}{Timing: provisional}{A modified prompt can still make an aligned model produce harmful assistance.}{
+\begin{columns}[c,onlytextwidth]
+\begin{column}{.62\linewidth}
+\includegraphics[width=\linewidth]{assets/gcg-example.png}\par\medskip
+\includegraphics[width=\linewidth,trim=270bp 0 0 0,clip]{assets/gcg-continuation.png}
+\end{column}
+\begin{column}{.34\linewidth}\centering
+\includegraphics[width=\linewidth,height=5.4cm,keepaspectratio,trim=0 70bp 0 0,clip]{assets/gcg-social-example.png}
+\end{column}
+\end{columns}\vfill
+\paperref{gcg}
+}
+\speak{These are two historical GCG jailbreak examples from Zou et al. An optimized suffix can make an aligned model comply with an unsafe request. The second example turns a request for a dangerous social-media post into a cheerful response. Let the audience see the shared failure without reading the examples aloud. These are supplied historical illustrations, not current-model evaluations or evidence that a model can carry out the described actions. We will quantify robustness later. Source detail: \href{https://arxiv.org/abs/2307.15043}{Zou et al. (2023)}, Greedy Coordinate Gradient (GCG).}

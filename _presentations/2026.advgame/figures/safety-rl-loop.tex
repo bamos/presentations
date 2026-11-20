@@ -1,0 +1,28 @@
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={font=\normalsize,text=Ink,align=center,inner sep=.14cm},
+ block/.style={draw=RLBlue,fill=RLBlueTint,rounded corners=5pt,line width=1pt,
+  minimum width=3.4cm,minimum height=1.25cm},
+ flow/.style={-{Latex[length=2.3mm]},draw=Ink,line width=1pt}]
+\definecolor{RLBlue}{HTML}{4777A4}
+\definecolor{RLBlueTint}{HTML}{E5EFF8}
+\definecolor{RLSage}{HTML}{65814B}
+\definecolor{RLSageTint}{HTML}{EDF3E5}
+\definecolor{RLWarmGray}{HTML}{A59B8A}
+\definecolor{RLWarmTint}{HTML}{F5F2EC}
+\begin{scope}[shift={(current page.south west)}]
+ \node[block] (policy) at (3.6,6.0) {Policy $\pi_\theta$};
+ \node[block,draw=RLWarmGray,fill=RLWarmTint] (environment) at (12.0,6.0)
+  {Task / environment};
+ \node[block] (update) at (3.6,2.75) {RL update};
+ \node[block,draw=RLSage,fill=RLSageTint]
+  (judge) at (12.0,2.75) {Safety judge};
+ \draw[flow] ([yshift=.3cm]policy.east) -- node[above] {Action}
+  ([yshift=.3cm]environment.west);
+ \draw[flow] ([yshift=-.3cm]environment.west) -- node[below] {Observation}
+  ([yshift=-.3cm]policy.east);
+ \draw[flow] (environment.south) -- node[right,align=left]
+  {Response\\and context} (judge.north);
+ \draw[flow] (judge.west) -- node[above] {Reward} (update.east);
+ \draw[flow] (update.north) -- (policy.south);
+\end{scope}
+\end{tikzpicture}

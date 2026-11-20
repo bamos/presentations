@@ -1,0 +1,21 @@
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={text=Ink,align=left,inner sep=0pt,font=\normalsize}]
+\begin{scope}[shift={(current page.south west)}]
+ \node[anchor=west,font=\normalsize\bfseries,text=LegacyGreen] at (3.35,7.0) {Defender reward};
+ \node[anchor=west,font=\normalsize\bfseries,text=LegacyRed] at (9.55,7.0) {Attacker reward};
+ \draw[Muted!55,line width=.7pt] (.65,6.5)--(15.3,6.5);
+ \draw[Muted!35,line width=.5pt] (.65,3.85)--(15.3,3.85);
+ \draw[Muted!55,line width=.7pt] (.65,1.0)--(15.3,1.0);
+ \draw[Muted!35,line width=.5pt] (8.95,1.0)--(8.95,7.35);
+ \node[anchor=north west,font=\normalsize\bfseries] at (.65,6.05) {Benign seed};
+ \node[anchor=north west,text width=5.1cm] at (3.35,6.05)
+  {\textbf{Compliance}\\[.18cm]Higher for direct answers};
+ \node[anchor=north west,text width=5.6cm] at (9.55,6.05)
+  {\textbf{Deflection}\\[.18cm]Higher when the defender incorrectly refuses or deflects a benign query};
+ \node[anchor=north west,font=\normalsize\bfseries] at (.65,3.4) {Harmful seed};
+ \node[anchor=north west,text width=5.1cm] at (3.35,3.4)
+  {\textbf{Deflection}\\[.18cm]Higher for constructive redirection over compliance};
+ \node[anchor=north west,text width=5.6cm] at (9.55,3.4)
+  {\textbf{Compliance}\\[.18cm]Higher when the defender produces a helpful response to a harmful query};
+\end{scope}
+\end{tikzpicture}

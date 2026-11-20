@@ -1,0 +1,20 @@
+\talkslide{judge-ablation}{Pointwise vs pairwise judge ablation}{Timing: provisional}{This is the comparison that isolates judge format within the DPO recipe.}{
+\par{\small\textbf{Qwen2.5-7B}\par}
+\vspace{.3cm}\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\linewidth}{@{}Xrrr@{}}\toprule
+Judge & HarmBench ASR $\downarrow$ & WJB ASR $\downarrow$ & ArenaHard $\uparrow$\\\midrule
+Pointwise &14.1&30.8&56.3\\
+Pairwise &\textbf{4.7}&\textbf{8.5}&\textbf{61.3}\\\bottomrule
+\end{tabularx}\par
+\vspace{.6cm}
+\begin{tikzpicture}
+ \node[rounded corners=5pt,draw=Accent!35,fill=Accent!6,
+  inner sep=.25cm,text width=13.8cm,align=left,text=Ink,font=\normalsize]
+ {\textbf{The optimizer stays DPO}\\[.12cm]
+  Pointwise: score \textbf{separately}, then compare\\
+  Pairwise: judge both responses \textbf{together}};
+\end{tikzpicture}
+
+
+}
+\speak{This is the comparison that isolates judge format within the DPO recipe. The pointwise judge scores responses separately, and we convert the scores into a preference. The pairwise judge sees both responses together. Appendix D.2 illustrates this with two numeric scores in a single prompt, so pairwise here describes joint comparison, not a promise that the judge never emits scores. The downstream evaluations favor pairwise judging. This is stronger evidence for the role of the judge than comparing DPO with GRPO, which changes the training objective as well. It still does not establish that every pairwise judge is more reliable than every scalar reward model. Source detail: Qwen2.5-7B; AdvGame, Table 5 and Section 4.5.}

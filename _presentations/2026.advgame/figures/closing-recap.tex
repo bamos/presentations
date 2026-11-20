@@ -1,0 +1,11 @@
+% Align the outline to the left content margin, with descriptions under headings.
+\draw[Muted!30,line width=.45pt] (.65,4.7)--(15.35,4.7);
+\foreach \i/\heading/\description/\y in {
+ 1/Safety training of models/{SFT, RL, and judges \detail{(e.g., as in Beam)}}/4.13,
+ 2/{Learning the attacker {\normalfont\color{Muted}(online DPO)}}/{AdvPrompter, learned attacks, judge feedback}/3.02,
+ 3/{Learning the defender {\normalfont\color{Muted}(online DPO)}}/{Joint training, separate rewards, robustness and utility}/1.91}{
+ \node[anchor=base west,align=left,font=\fontsize{10}{12}\selectfont\bfseries] at (.65,\y) {\i.};
+ \node[anchor=base west,align=left,font=\fontsize{10}{12}\selectfont\bfseries] at (1.25,\y) {\heading};
+ \node[anchor=base west,align=left,font=\fontsize{10}{12}\selectfont] at (1.25,\y-.42) {\description};
+}
+\draw[Muted!30,line width=.45pt] (.65,1.08)--(15.35,1.08);

@@ -1,0 +1,15 @@
+\talkslide{experiments}{Experimental setup}{Timing: provisional}{The experiments use two model families at seven to eight billion parameters.}{
+
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{@{}lXX@{}}\toprule
+ & \textbf{Qwen experiments} & \textbf{Llama experiments}\\\midrule
+Defender & Qwen2.5-7B & Llama3.1-8B\\
+Attacker & Qwen2.5-7B & Llama3.1-8B-Abliterated\\
+Judge & Qwen2.5-32B & Llama3.3-70B-Abliterated\\\bottomrule
+\end{tabularx}\par\smallskip
+\textbf{Training}\par WildJailbreak vanilla harmful and benign seeds; 80/20 split\par\medskip\par
+\textbf{Evaluation}\par General utility, harmful compliance, benign compliance, and adaptive attacks\par\medskip
+
+
+}
+\speak{The experiments use two instruction-tuned model families at seven to eight billion parameters. All models are instruction-tuned, including the Qwen attacker and judges. For Llama, the attacker starts from an abliterated checkpoint because the aligned model otherwise refuses to generate attacks. We train on vanilla harmful and benign WildJailbreak seeds with an eighty-twenty training-validation split. The evaluations separately measure general capabilities, harmful behavior, over-refusal, and robustness to attackers that adapt to each defended checkpoint. The reported results concern these models and text jailbreaks. Source detail: AdvGame, Section 4.1.}

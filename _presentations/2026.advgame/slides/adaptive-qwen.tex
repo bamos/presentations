@@ -1,0 +1,16 @@
+\talkslide{adaptive-qwen}{Adaptive Attacks \& Attacker LM Performance}{Timing: provisional}{Adaptive attacks evaluated against each defender checkpoint in both model families.}{
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{@{}Xrrrr@{}}\toprule
+Defender & PAIR & TAP & GCG & AdvGame\\\midrule
+\multicolumn{5}{@{}l}{\textbf{Qwen2.5-7B}}\\[.08cm]
+Original &45.0&48.8&61.6&55.6\\
+Self-RedTeam &37.2&40.3&\textbf{23.4}&40.9\\
+\textbf{AdvGame-DPO-MD}&\textbf{7.2}&\textbf{10.0}&25.3&\textbf{11.3}\\
+\midrule
+\multicolumn{5}{@{}l}{\textbf{Llama3.1-8B}}\\[.08cm]
+Original &42.5&49.0&42.8&34.4\\
+Self-RedTeam &23.7&34.5&25.3&15.9\\
+\textbf{AdvGame-DPO-MD}&\textbf{9.1}&\textbf{12.8}&\textbf{24.4}&\textbf{9.7}\\\bottomrule
+\end{tabularx}
+}
+\speak{These attacks are run against each checkpoint rather than transferred from a fixed prompt set. AdvGame reduces PAIR and TAP success substantially. GCG is a useful qualification: Self-RedTeam is slightly better than our DPO-MD model on this Qwen result. The rightmost column also evaluates our attacker. It generates ten candidates per seed and counts the seed as successful if any works. That makes it a reusable red-teaming model, but the column is not a one-shot or equal-compute comparison. Source detail: AdvGame, Table 4. AdvGame attacker: success in any of ten sampled prompts per seed. The second model family shows the same broad pattern: the strongest relative improvements are on the natural-language adaptive attacks. Attack success does not disappear. That is why the conclusion should be about measured robustness rather than a solved safety problem. The trained attacker also transfers to the original and Self-RedTeam checkpoints. Source detail: AdvGame, Table 4. ASR (\%), lower is better; same ten-sample AdvGame protocol.}

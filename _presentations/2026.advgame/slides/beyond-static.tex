@@ -1,0 +1,27 @@
+\talkslide{beyond-static}{This talk: how do we go beyond static datasets and tasks?}{Timing: provisional}{This talk: how do we go beyond static datasets and tasks?}{
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={inner sep=0pt,text=Ink,align=center}]
+\begin{scope}[shift={(current page.south west)}]
+ \node[anchor=north,text width=14.7cm,font=\fontsize{22}{27}\selectfont\fontseries{sb}\selectfont]
+  at (8,8.4) {This talk: how do we go beyond\\static datasets and tasks?};
+ \draw[draw=Accent!45,fill=Pale!25,rounded corners=6pt,line width=.85pt]
+  (.65,1.15) rectangle (15.35,6.2);
+ \node[anchor=north,text width=13.5cm,font=\fontsize{14.5}{18}\selectfont]
+  at (8,5.75) {{\fontseries{sb}\selectfont AdvGame:} Safety Alignment of LMs\\via Non-cooperative Games};
+ \node[text=Muted,font=\fontsize{10}{12}\selectfont] at (8,4.35) {ICML 2026};
+ \foreach \key/\x/\first/\last in {
+  anselm/1.95/Anselm/{Paulus\authorcontribution{\ast}},
+  ilia/3.97/Ilia/Kulikov,
+  brandon/5.98/Brandon/Amos,
+  remi/8/{R\'emi}/Munos,
+  ivan/10.02/Ivan/Evtimov,
+  kamalika/12.03/Kamalika/Chaudhuri,
+  arman/14.05/Arman/{Zharmagambetov\authorcontribution{\ast}}} {
+   \node at (\x,3.10) {\scalebox{.92}{\authorportrait{\key}}};
+   \node[anchor=base,font=\fontsize{6.8}{8.2}\selectfont] at (\x,2.21) {\first};
+   \node[anchor=base,font=\fontsize{6.8}{8.2}\selectfont] at (\x,1.91) {\last};
+ }
+\end{scope}
+\end{tikzpicture}
+}
+\speak{Beam's first version used a static collection of known and automated attacks. This motivates the question for the rest of the talk: how can the attack generator and defender adapt to each other? I will focus on automated jailbreaks rather than the whole safety mixture. AdvGame is earlier exploratory work from our time at FAIR; Beam is current context, not its historical motivation. Reintroduce the AdvGame collaboration and ICML 2026 here as we move from Beam background into this research.}

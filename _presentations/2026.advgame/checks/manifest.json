@@ -1,0 +1,179 @@
+{
+  "new_count": 58,
+  "frames": [
+    {
+      "label": "title"
+    },
+    {
+      "label": "beam-about"
+    },
+    {
+      "label": "vulnerabilities"
+    },
+    {
+      "label": "vulnerabilities-claude"
+    },
+    {
+      "label": "defense-stack"
+    },
+    {
+      "label": "defense-stack-focus"
+    },
+    {
+      "label": "overview-beam"
+    },
+    {
+      "label": "beam-summary"
+    },
+    {
+      "label": "beam-benchmarks"
+    },
+    {
+      "label": "beam-frontier"
+    },
+    {
+      "label": "beam-report"
+    },
+    {
+      "label": "beam-overview"
+    },
+    {
+      "label": "beam-overview-agentic"
+    },
+    {
+      "label": "beam-overview-alignment"
+    },
+    {
+      "label": "beam-sft"
+    },
+    {
+      "label": "beam-sft-data"
+    },
+    {
+      "label": "beam-sft-jailbreak"
+    },
+    {
+      "label": "beam-sft-harmless"
+    },
+    {
+      "label": "beam-rl"
+    },
+    {
+      "label": "beam-rl-judge"
+    },
+    {
+      "label": "beam-rl-data"
+    },
+    {
+      "label": "beam-rl-multiturn"
+    },
+    {
+      "label": "beam-rl-agentic"
+    },
+    {
+      "label": "beam-rl-jailbreak"
+    },
+    {
+      "label": "beyond-static"
+    },
+    {
+      "label": "overview-attacks"
+    },
+    {
+      "label": "what-is-an-attack"
+    },
+    {
+      "label": "attack-timeline"
+    },
+    {
+      "label": "attack-timeline-advprompter"
+    },
+    {
+      "label": "advprompter"
+    },
+    {
+      "label": "attack-objectives"
+    },
+    {
+      "label": "pointwise"
+    },
+    {
+      "label": "pairwise"
+    },
+    {
+      "label": "attacker-objective"
+    },
+    {
+      "label": "attacker-loss"
+    },
+    {
+      "label": "overview-defenses"
+    },
+    {
+      "label": "certified-defense-bridge"
+    },
+    {
+      "label": "advprompter-dataset"
+    },
+    {
+      "label": "alternation"
+    },
+    {
+      "label": "joint-game"
+    },
+    {
+      "label": "selfredteam"
+    },
+    {
+      "label": "shared-conflict"
+    },
+    {
+      "label": "zero-sum"
+    },
+    {
+      "label": "reward-swap"
+    },
+    {
+      "label": "objectives"
+    },
+    {
+      "label": "defender-loss"
+    },
+    {
+      "label": "separate"
+    },
+    {
+      "label": "rollouts"
+    },
+    {
+      "label": "experiments"
+    },
+    {
+      "label": "main-results"
+    },
+    {
+      "label": "compliance"
+    },
+    {
+      "label": "adaptive-qwen"
+    },
+    {
+      "label": "judge-ablation"
+    },
+    {
+      "label": "other-ablations"
+    },
+    {
+      "label": "ipo"
+    },
+    {
+      "label": "loss-ablation"
+    },
+    {
+      "label": "limitations"
+    },
+    {
+      "label": "thanks"
+    }
+  ]
+}

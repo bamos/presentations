@@ -1,0 +1,5 @@
+\talkslide{what-is-an-attack}{What is an attack?}{Timing: provisional}{An attack modifies a prompt while preserving its underlying intent, aiming to make the model comply where it might otherwise refuse.}{
+\input{figures/what-is-an-attack.tex}
+\paperref{gcg}
+}
+\speak{Here we are focusing on jailbreaks of harmful requests. Start from an initial prompt $x_s$ that the defender may refuse. An attacker produces a modified prompt $x$ that preserves the underlying request but aims to induce harmful compliance. The diagram describes the goal of a successful attack, not a guarantee that every generated prompt succeeds. The modification can be an adversarial suffix, as in the GCG example shown here, or a semantically equivalent rewrite of the request. Preserving intent is the faithfulness constraint that will matter later. The GCG screenshot is the same historical example introduced earlier; the response opening illustrates compliance without needing to read the harmful continuation. Source: Zou et al., Universal and Transferable Adversarial Attacks on Aligned Language Models (2023), Section 2.}

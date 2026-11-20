@@ -1,0 +1,20 @@
+% Reuse the opening report cutout, with a skimmable safety scope above it.
+\begin{tikzpicture}[remember picture,overlay,
+  every node/.style={anchor=west,inner sep=0pt,font=\normalsize,text=Ink}]
+\begin{scope}[shift={(current page.south west)}]
+  \node at (.65,7.0) {\textbf{About 40 pages} on safety training and evaluations};
+  % One table with aligned columns, soft row fills, and shared padding.
+  \path[fill=Pale!70] (.65,6.15) rectangle (15.35,3.35);
+  \path[fill=Pale!35] (.65,5.22) rectangle (15.35,4.28);
+  \draw[Ink!12,line width=.45pt] (.65,5.22) -- (15.35,5.22);
+  \draw[Ink!12,line width=.45pt] (.65,4.28) -- (15.35,4.28);
+  \node at (.9,5.685) {\textbf{Systemic risks}};
+  \node at (3.85,5.685) {\color{Muted}Biological and chemical weapons, loss of control, cyber offense};
+  \node at (.9,4.75) {\textbf{Model behavior}};
+  \node at (3.85,4.75) {\color{Muted}Conversations, agents, over-refusal, prompt injection, and child safety};
+  \node at (.9,3.815) {\textbf{Evaluations}};
+  \node at (3.85,3.815) {\color{Muted}Independent evaluations and human and automated red-teaming};
+  \node[anchor=south west] at (.65,.15)
+    {\begin{minipage}{14.7cm}\input{figures/beam-report-peek.tex}\end{minipage}};
+\end{scope}
+\end{tikzpicture}

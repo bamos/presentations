@@ -1,0 +1,56 @@
+% #1: 0 attacker / 1 defender. Each role includes the full loss on one slide.
+\newcommand{\dpolossview}[1]{%
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={text=Ink,align=left,inner sep=0pt,font=\normalsize}]
+\begin{scope}[shift={(current page.south west)}]
+ \ifnum#1=0
+  \def\candidate{x}\def\params{\phi}\def\role{att}
+  \def\policyleader{10.5}\def\referenceleader{10.6}
+  \def\policylabel{Attacker policy}
+  \node at (8,1.1)
+   {$\displaystyle\operatorname{score}_{\phi}(x)
+      =\beta\log\frac{\rho_\phi(x\mid c,x_s)}{\rho_{\rm ref}(x\mid c,x_s)}$};
+ \else
+  \def\candidate{y}\def\params{\theta}\def\role{def}
+  \def\policyleader{10.2}\def\referenceleader{10.3}
+  \def\policylabel{Defender policy}
+  \node at (8,1.1)
+   {$\displaystyle\operatorname{score}_{\theta}(y)
+      =\beta\log\frac{\pi_\theta(y\mid x)}{\pi_{\rm ref}(y\mid x)}$};
+ \fi
+ \node[anchor=west,text=Muted,font=\small] at (11.25,1.5) {\policylabel};
+ \node[anchor=west,text=Muted,font=\small] at (11.25,.65) {Reference policy};
+ \draw[Muted!70,line width=.65pt] (\policyleader,1.38)--(11.05,1.5);
+ \draw[Muted!70,line width=.65pt] (\referenceleader,.85)--(11.05,.65);
+ % The curve is a schematic score profile over arbitrarily ordered discrete outputs.
+ \path[draw=Muted!30,fill=Pale!25,line width=.6pt,rounded corners=6pt]
+   (1.05,1.85) rectangle (15.05,5.0);
+ \draw[-{Latex[length=1.8mm]},Muted!65,line width=.65pt] (2.25,2.65)--(13.4,2.65);
+ \draw[-{Latex[length=1.8mm]},Muted!65,line width=.65pt] (2.25,2.65)--(2.25,4.85);
+ \node[rotate=90,font=\small] at (1.78,3.8) {Score};
+ \node[anchor=west,font=\small,text=Muted] at (11.3,2.32) {Output candidates};
+ \path[fill=Accent!10] (2.55,2.65) -- plot[domain=2.55:12.9,samples=100,smooth]
+  (\x,{2.65+1.15*exp(-((\x-5.0)^2)/(2*1.0^2))+1.75*exp(-((\x-9.3)^2)/(2*1.2^2))})
+  --(12.9,2.65)--cycle;
+ \draw[Ink,line width=1.15pt] plot[domain=2.55:12.9,samples=100,smooth]
+  (\x,{2.65+1.15*exp(-((\x-5.0)^2)/(2*1.0^2))+1.75*exp(-((\x-9.3)^2)/(2*1.2^2))});
+ \draw[Muted!55,densely dotted,line width=.6pt] (5,2.65)--(5,3.803);
+ \draw[Muted!55,densely dotted,line width=.6pt] (9.3,2.65)--(9.3,4.400);
+ \fill[Accent] (5,3.803) circle (2pt);
+ \fill[Ink] (9.3,4.400) circle (2pt);
+ \draw[-{Latex[length=2mm]},Accent,line width=1.1pt] (5,3.88)--(5,4.75);
+ \draw[-{Latex[length=2mm]},Ink,line width=1.1pt] (9.3,4.32)--(9.3,3.35);
+ \node[text=Accent] at (5,2.20) {Preferred $\candidate_w$};
+ \node at (9.3,2.20) {Rejected $\candidate_l$};
+ \node[font=\large] (loss) at (8,6.15)
+   {$\displaystyle\mathcal L_{\rm\role}=\mathbb E\!\left[-\log\sigma\!\left(
+       \operatorname{score}_{\params}(\candidate_w)-\operatorname{score}_{\params}(\candidate_l)\right)\right]$};
+ \node[text=Muted,font=\small] at (4.75,5.28) {Average over pairs};
+ \node[text=Muted,font=\small] at (8.15,5.28) {Preferred score};
+ \node[text=Muted,font=\small] at (10.8,5.28) {Rejected score};
+ \coordinate (leader-top) at ([yshift=-.10cm]loss.south);
+ \draw[Muted!70,line width=.65pt] (5.65,0 |- leader-top)--(5.65,5.68)--(5.15,5.51);
+ \draw[Muted!70,line width=.65pt] (8.25,0 |- leader-top)--(8.25,5.53);
+ \draw[Muted!70,line width=.65pt] (10.55,0 |- leader-top)--(10.55,5.53);
+\end{scope}
+\end{tikzpicture}}

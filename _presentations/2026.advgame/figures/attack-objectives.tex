@@ -1,0 +1,16 @@
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={text=Ink,align=left,inner sep=0pt,font=\normalsize}]
+\begin{scope}[shift={(current page.south west)}]
+ \node[anchor=north west,font=\normalsize\bfseries] at (.65,7.05) {Target strings};
+ \node[anchor=north west,text=Muted] at (.65,6.5) {(e.g., GCG and AdvPrompter)};
+ \node[anchor=north west,text width=6.7cm] at (.65,5.6)
+  {Increase the likelihood of a chosen \textbf{affirmative target response}};
+ \node[anchor=north west,font=\normalsize\itshape] at (.65,4.3)
+  {``Sure, here is\ldots''};
+ \draw[Muted!35,line width=.6pt] (7.95,3.2)--(7.95,7.05);
+ \node[anchor=north west,font=\normalsize\bfseries] at (8.6,7.05) {Judge-based feedback};
+ \node[anchor=north west,text=Muted] at (8.6,6.5) {(e.g., Self-RedTeam, AdvGame)};
+ \node[anchor=north west,font=\small] at (8.6,5.6)
+  {\safetyjudgetable{6.7cm}};
+\end{scope}
+\end{tikzpicture}

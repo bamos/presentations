@@ -1,0 +1,12 @@
+% Shared typography, geometry, and colors for the introductory conversations.
+% Helvetica-style interface typography, scoped to the chat mockups only.
+\newcommand{\chatfont}{\fontfamily{phv}\fontseries{m}\fontsize{9.5}{12.5}\selectfont}
+\newcommand{\conversationexample}[2]{%
+\begin{tikzpicture}
+\fill[black] (0,0) rectangle (14.2,-5.65);
+\node[anchor=north west,rounded corners=7pt,fill=black!75,text=white,
+  minimum height=1.35cm,text width=9.55cm,inner sep=.24cm,font=\chatfont,align=left]
+  at (3.85,-.23) {#1};
+\node[anchor=north west,text=white,text width=13.35cm,inner sep=0pt,
+  font=\chatfont,align=left] at (.42,-1.8) {#2};
+\end{tikzpicture}}

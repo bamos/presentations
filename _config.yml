@@ -17,6 +17,16 @@ safe: false
 
 future: true
 
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - _presentations/2026.advgame/
+
 collections:
   presentations:
     output: true

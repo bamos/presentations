@@ -60,7 +60,7 @@ layout: singlePage
 {% endif %}
 {% if page.pdf %}
 {% if page.source %}
-&bull; <a href="{{ page.source }}" target='_blank'>Source</a>
+&bull; <a href="{{ page.source }}" target='_blank'>{{ page.source_label | default: "Source" | escape }}</a>
 {% endif %}
 &bull; <a href="{{ site.baseurl }}/{{ page.pdf }}">PDF</a>
 {% endif %}

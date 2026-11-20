@@ -1,0 +1,61 @@
+% One metadata record per work. Each frame collects its references for the footer.
+% Full source titles and exact locators belong in the adjacent speaker notes.
+\newcommand{\defwork}[5]{%
+ \expandafter\def\csname work@#1\endcsname{\href{#5}{\textit{#2}}. \mbox{#3, #4}}%
+ \expandafter\def\csname workurl@#1\endcsname{#5}%
+ \expandafter\def\csname workbyline@#1\endcsname{#3, #4}}
+\newcommand{\workref}[1]{\csname work@#1\endcsname}
+% Trim the asset's transparent padding, then align its visible shape to the text.
+\newcommand{\bookemoji}{\raisebox{-.08em}{\includegraphics[trim=38bp 46bp 39bp 25bp,clip,height=.74em]{assets/book-emoji.png}}}
+\newcommand{\bookref}[1]{\bookemoji\nobreak\hspace{.28em}\nobreak#1}
+\definecolor{ReferenceGray}{HTML}{7A7A7A}
+\newcommand{\referencefontsize}{\fontsize{9}{11}\selectfont}
+\newcommand{\referencefont}{\referencefontsize\color{ReferenceGray}}
+\newcommand{\framereferences}{}
+\newcommand{\framereferencewidth}{14.0cm}
+\newcommand{\resetframereferences}{\gdef\framereferences{}\gdef\framereferencewidth{14.0cm}}
+\newcommand{\slideref}[1]{\gappto\framereferences{\bookref{#1}\par}}
+\newcommand{\paperref}[1]{\slideref{\workref{#1}}}
+\newcommand{\inlinepaperref}[1]{{\referencefont\bookref{\workref{#1}}}}
+% Paired figure captions retain the shared citation size, with the byline on
+% its own line. The second argument supplies intentional title line breaks.
+\newcommand{\panelpaperref}[2]{{\referencefont\raggedright
+ \setlength{\parskip}{0pt}\setlength{\parindent}{0pt}%
+ \hangindent=1.02em\hangafter=1
+ \bookref{\href{\csname workurl@#1\endcsname}{\textit{#2}}}.\par
+ \vspace{.08cm}\hspace*{1.02em}\csname workbyline@#1\endcsname\par}}
+\newcommand{\paperrefs}[2][14.0cm]{\gdef\framereferencewidth{#1}\forcsvlist{\paperref}{#2}}
+\newcommand{\paperreflines}[1]{\paperrefs{#1}}
+\newcommand{\bottompaperrefs}[1]{\paperrefs{#1}}
+% The last reference baseline and the slide number share the same y coordinate.
+% Earlier references stack upward with a modest, consistent interline gap.
+\newcommand{\renderframereferences}{%
+\ifdefempty{\framereferences}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=base west,inner sep=0pt] at ([xshift=.65cm,yshift=.30cm]current page.south west)
+    {\begin{minipage}[b]{\framereferencewidth}\raggedright\referencefont
+     \setlength{\parskip}{2pt}\framereferences\end{minipage}};
+\end{tikzpicture}}}
+
+\defwork{advgame}{Safety Alignment of LMs via Non-cooperative Games}{Paulus et al.}{ICML 2026}{https://proceedings.mlr.press/v306/paulus26b.html}
+\defwork{advprompter}{AdvPrompter: Fast Adaptive Adversarial Prompting for LLMs}{Paulus et al.}{ICML 2025}{https://proceedings.mlr.press/v267/paulus25a.html}
+\defwork{amortization}{Tutorial on Amortized Optimization}{Brandon Amos}{Foundations and Trends in ML 2023}{https://doi.org/10.1561/2200000102}
+\defwork{gcg}{Universal and Transferable Adversarial Attacks (GCG)}{Zou et al.}{2023}{https://arxiv.org/abs/2307.15043}
+\defwork{beam}{Beam Model Technical Report}{Reflection Team}{2026}{https://reflection.ai/documents/beam-model-tech-report}
+\defwork{deliberative}{Deliberative Alignment}{Guan, Joglekar, Wallace et al.}{2024}{https://arxiv.org/abs/2412.16339}
+\defwork{tutorial}{Jailbreaking LLMs and Agentic Systems}{Hamed Hassani, Amin Karbasi, Alex Robey}{ICML tutorial 2025}{https://jailbreak-tutorial.github.io/}
+\defwork{tutorial-image}{Jailbreaking LLMs and Agentic Systems}{Hassani, Karbasi, Robey}{ICML tutorial 2025}{https://jailbreak-tutorial.github.io/}
+\defwork{baseline}{Baseline Defenses for Adversarial Attacks Against Aligned Language Models}{Jain et al.}{2023}{https://arxiv.org/abs/2309.00614}
+\defwork{wong}{Provable Defenses against Adversarial Examples}{Wong and Kolter}{ICML 2018}{https://proceedings.mlr.press/v80/wong18a.html}
+\defwork{smoothing}{Certified Adversarial Robustness via Randomized Smoothing}{Cohen, Rosenfeld, Kolter}{ICML 2019}{https://proceedings.mlr.press/v97/cohen19c.html}
+\defwork{selfredteam}{Chasing Moving Targets with Online Self-Play RL for Safer Language Models}{Liu et al.}{ICML 2026}{https://proceedings.mlr.press/v306/liu26bn.html}
+\defwork{mirror}{The Attacker in the Mirror}{La Malfa et al.}{NeurIPS 2026}{https://arxiv.org/abs/2605.08427}
+\defwork{ipo}{A General Theoretical Paradigm to Understand Learning from Human Preferences}{Azar et al.}{AISTATS 2024}{https://proceedings.mlr.press/v238/gheshlaghi-azar24a.html}
+\defwork{ipomd}{Human Alignment of LLMs through Online Preference Optimisation}{Calandriello et al.}{ICML 2024}{https://proceedings.mlr.press/v235/calandriello24a.html}
+\defwork{rlhf}{Reinforcement Learning from Human Feedback}{Nathan Lambert, Dmitry Ustalov}{ICML tutorial 2023}{https://zenodo.org/records/8186168}
+\defwork{reinforce}{The Policy of Truth}{Ben Recht}{arg min blog 2018}{https://archives.argmin.net/2018/02/20/reinforce/}
+\defwork{ppo}{Proximal Policy Optimization Algorithms}{Schulman et al.}{2017}{https://arxiv.org/abs/1707.06347}
+\defwork{grpo}{DeepSeekMath}{Shao et al.}{2024}{https://arxiv.org/abs/2402.03300}
+\defwork{dpo}{Direct Preference Optimization}{Rafailov et al.}{NeurIPS 2023}{https://arxiv.org/abs/2305.18290}
+
+\defwork{wildteaming}{WildTeaming at Scale}{Jiang et al.}{NeurIPS 2024}{https://proceedings.neurips.cc/paper_files/paper/2024/hash/54024fca0cef9911be36319e622cde38-Abstract-Conference.html}

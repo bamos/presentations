@@ -1,0 +1,10 @@
+% Beam's training rule, reused as the introductory safety-judgment example.
+\newcommand{\safetyjudgetable}[1]{%
+\begin{minipage}{#1}
+ \renewcommand{\arraystretch}{1.18}
+ \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lll@{}}\toprule
+  \textbf{Request} & \textbf{Answer} & \textbf{Refuse / pivot}\\\midrule
+  Harmless & \textcolor{LegacyGreen}{Pass} & \textcolor{LegacyRed}{Fail}\\
+  Harmful & \textcolor{LegacyRed}{Fail} & \textcolor{LegacyGreen}{Pass}\\\bottomrule
+ \end{tabular*}
+\end{minipage}}

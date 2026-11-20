@@ -1,0 +1,12 @@
+% Fixed canvas: add the focus annotation only on the second physical frame.
+\newcommand{\defensestack}[1]{%
+\begin{tikzpicture}[every node/.style={inner sep=0pt}]
+\path[use as bounding box] (0,0) rectangle (14.45,-5.9);
+\node[anchor=north west] at (.85,0)
+ {\includegraphics[width=12.75cm,height=4.46cm,trim=0 162.9bp 0 158.27bp,clip]{assets/defense-stack.png}};
+\ifnum#1=1\relax
+\node[anchor=north,font=\large] at (8.85,-4.98) {this talk};
+\draw[-{Latex[length=2mm]},thick,draw=Ink] (8.85,-4.9)--(8.85,-4.03);
+\fi
+\end{tikzpicture}%
+}

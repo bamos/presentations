@@ -1,0 +1,15 @@
+\begin{tikzpicture}[remember picture,overlay,
+ every node/.style={text=Ink,align=left,inner sep=0pt,font=\normalsize},
+ trainingbox/.style={draw=Accent!65,fill=Pale,rounded corners=5pt,line width=1pt,
+  text width=4cm,minimum height=1.15cm,align=center,inner sep=.12cm},
+ flow/.style={-{Latex[length=2.1mm]},draw=Ink,line width=.85pt}]
+\begin{scope}[shift={(current page.south west)}]
+ \node[trainingbox] (generate) at (2.8,4.75)
+  {Generate with policy\\[.08cm]\detail{(deliberative alignment)}};
+ \node[trainingbox] (rewrite) at (8,4.75) {Filter + rewrite\\reasoning traces};
+ \node[trainingbox,draw=LegacyGreen!65,fill=LegacyGreen!4] (train) at (13.2,4.75)
+  {Safety SFT\\[.08cm]\detail{(policy removed)}};
+ \draw[flow] (generate.east)--(rewrite.west);
+ \draw[flow] (rewrite.east)--(train.west);
+\end{scope}
+\end{tikzpicture}

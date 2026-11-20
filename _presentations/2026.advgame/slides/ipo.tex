@@ -1,0 +1,17 @@
+\talkslide{ipo}{DPO vs IPO loss ablation}{Timing: provisional}{IPO provides an alternative when preferences need not come from a single scalar Bradley--Terry reward.}{
+\lead{Alternative formulation that doesn\textquotesingle t assume Bradley--Terry model}
+\[
+\mathcal L_{\rm IPO}=\mathbb E\left[
+\left(\log\frac{\pi_\theta(y_w\mid x)\pi_{\rm ref}(y_l\mid x)}
+{\pi_{\rm ref}(y_w\mid x)\pi_\theta(y_l\mid x)}
+-\frac{1}{2\beta}\right)^2\right]
+\]
+
+\begin{statements}\setlength{\itemsep}{.3cm}
+\item The formulation can represent \textbf{non-transitive preferences}
+\item The squared loss targets a \textbf{finite likelihood-ratio margin}
+\item IPO-MD supplies the motivation for \textbf{smoothed sampling}
+\end{statements}
+\paperrefs[14.7cm]{ipo,ipomd}
+}
+\speak{IPO provides an alternative when preferences need not come from a single scalar Bradley--Terry reward. The displayed generic online IPO loss targets a finite log-likelihood-ratio margin, rather than pushing it indefinitely. The game version couples attacker and defender preference problems and draws on IPO-MD. This addresses an over-optimization concern in the formulation; it is not a universal guarantee against overfitting or judge errors. The equation uses the background online IPO convention from Appendix B.2. Source detail: Azar et al. (2024); Calandriello et al. (2024); AdvGame, Appendix B.2, Eq. (34).}

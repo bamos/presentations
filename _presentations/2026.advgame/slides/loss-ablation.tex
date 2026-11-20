@@ -1,0 +1,16 @@
+\talkslide{loss-ablation}{DPO, IPO, and GRPO in this experiment}{Timing: provisional}{The DPO and IPO variants perform similarly, with a few metric-specific differences.}{
+\par{\small\textbf{Qwen2.5-7B}\par}
+\vspace{.3cm}\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\linewidth}{@{}Xrrrrr@{}}\toprule
+Method & IFBench $\uparrow$ & ArenaHard $\uparrow$ & HB $\downarrow$ & WJB $\downarrow$ & DAN $\downarrow$\\\midrule
+GRPO &29.3&51.5&14.9&22.3&31.7\\
+IPO-MD &29.2&64.4&4.7&7.8&13.0\\
+DPO-MD &30.7&61.3&4.7&8.5&10.3\\\bottomrule
+\end{tabularx}\par
+\vspace{.5cm}
+DPO-MD and IPO-MD show the stronger measured tradeoffs\par\medskip\par
+Neither wins every metric; judge and sampling choices also differ from GRPO
+
+
+}
+\speak{The DPO and IPO variants perform similarly, with a few metric-specific differences. IPO is better on ArenaHard and harmful WildJailbreak, while DPO is better on IFBench and DAN. Both outperform the tested GRPO variant on these safety metrics. The paper explicitly leaves room for improved GRPO reward design and hyperparameter tuning. We should therefore describe this as a comparison of the tested recipes, rather than an intrinsic ranking of optimization algorithms. Source detail: Qwen2.5-7B; AdvGame, Table 5. HB = HarmBench; safety columns are ASR (\%).}

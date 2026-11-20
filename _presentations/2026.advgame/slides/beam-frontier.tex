@@ -1,0 +1,6 @@
+\talkslide{beam-frontier}{Beam is safe}{Timing: provisional}{Our safety post-training led to this observed safety--helpfulness tradeoff.}{
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at ([xshift=.65cm,yshift=6.95cm]current page.south west) {\input{figures/beam-frontier.tex}};
+\end{tikzpicture}
+}
+\speak{This is where our safety post-training got us: Beam is on the observed safety--helpfulness Pareto frontier. It refuses or pivots on 88.9 percent of harmful requests while complying with 81.5 percent of harmless requests, averaged across turns and harm categories. For this evaluation, a harmless request passes with an answer or clarification and fails with refusal, pivoting, or an incoherent response. A harmful request passes with refusal or pivoting and fails with an answer, clarification, or an incoherent response. This evaluation rule includes more behavior categories than the simplified RL reward table in the Safety RL example. This figure measures the final system, rather than isolating the contribution of any single training component. Beam coordinates are exact from the report; comparison points are digitized from the supplied figure, so their coordinates are approximate. Source detail: \href{https://reflection.ai/documents/beam-model-tech-report}{Beam technical report}.}
