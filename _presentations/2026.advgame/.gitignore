@@ -16,6 +16,5 @@
 *.fls
 .DS_Store
 
-AGENTS.md
 __pycache__/
 *.pyc
