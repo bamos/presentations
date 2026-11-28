@@ -5,6 +5,9 @@ to view them.
 
 ![](https://user-images.githubusercontent.com/707462/174943502-3e50162b-09a0-4e34-b7c2-c203d8729fce.gif)
 
+The navbar and shared styles come from the [main website's Jekyll includes](https://github.com/bamos/bamos.github.io/tree/main/_includes).
+Edits there appear here on the next presentations build. The slide layouts live in `_layouts/` in this repo.
+
 ## PDF updates
 
 Copy the final slide PDF into `_presentations/` using the filename referenced by

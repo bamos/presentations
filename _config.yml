@@ -11,8 +11,9 @@ url: https://bamos.github.io
 baseurl: /presentations
 
 markdown: kramdown
-theme: minima
-plugins: []
+remote_theme: bamos/bamos.github.io@main
+plugins:
+  - jekyll-remote-theme
 safe: false
 
 future: true
